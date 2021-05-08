@@ -1,4 +1,5 @@
 import './App.css';
+import SpotlightSearch from './components/spotlight-search/spotlight-search'
 
 function App() {
   return (
@@ -6,6 +7,7 @@ function App() {
       <header className="App-header">
 
       </header>
+        <SpotlightSearch/>
     </div>
   );
 }
