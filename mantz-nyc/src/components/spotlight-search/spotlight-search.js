@@ -1,18 +1,19 @@
-import React from 'react'
-import 
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
-class SpotlightSearch extends React.Component {
-  componentDidMount() {
-    
-  }
+const SpotlightSearch = () => {
+
+  const [photo, setPhoto] = useState(null)
   
-  render() {
-    return (
-      <div id='home-page-container'>
+  useEffect(() => {
 
-      </div>
-    )
-  }
+  })
+  
+  return (
+    <div id='home-page-container'>
+
+    </div>
+  )
 }
 
 export default SpotlightSearch;
