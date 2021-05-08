@@ -1,4 +1,5 @@
 import React from 'react'
+import 
 
 class SpotlightSearch extends React.Component {
   componentDidMount() {
@@ -8,7 +9,7 @@ class SpotlightSearch extends React.Component {
   render() {
     return (
       <div id='home-page-container'>
-        
+
       </div>
     )
   }
