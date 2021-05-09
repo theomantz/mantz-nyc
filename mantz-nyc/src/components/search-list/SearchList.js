@@ -29,9 +29,13 @@ const SearchList = ({ active }) => {
         key={uuidv4()}>{key}</li>
         {value.map(v => {
           return ( 
-            <li 
-            key={uuidv4()} 
-            className='section-list-item'>{v}</li> 
+            <div className='list-item-outer-container'>
+              <li
+              key={uuidv4()} 
+              className='section-list-item'
+              >{v}
+              </li>
+            </div>
           )
         })}
       </ul>

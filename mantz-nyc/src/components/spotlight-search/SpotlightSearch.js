@@ -16,7 +16,6 @@ const SpotlightSearch = () => {
     if(!active) {
       const typed = new Typed("#inputArea", {
         strings: [
-          "Software Engggineer",
           "Software Engineer",
           "Software Developer ",
           "Good jokes",
@@ -54,7 +53,8 @@ const SpotlightSearch = () => {
             value={search}
             onChange={
               e => setSearch(e.currentTarget.value)
-            }></input>
+            }
+          />
         </div>
       </div>
       <SearchList active={active} />

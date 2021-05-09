@@ -16,7 +16,7 @@ textarea:focus, input:focus {
   font-size: 2rem;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  border-radius: 0.6rem;
   transition: height 0.2s ease-out;
 }
 
@@ -36,6 +36,7 @@ textarea:focus, input:focus {
   align-items: center;
   height: 50px;
   width: 100%;
+  z-index: 1;
 }
 
 #searchIcon-container {
@@ -51,7 +52,7 @@ textarea:focus, input:focus {
 
 #searchIcon {
   z-index: 5;
-  color: rgb(75, 73, 73);
+  color: rgb(26, 27, 27);
   height: 45%;
   width: auto;
 }
@@ -73,6 +74,6 @@ textarea:focus, input:focus {
   border: none;
   z-index: 2;
   font-size: 1.6rem;
-  color: rgb(75, 73, 73);
+  color: rgb(26, 27, 27);
   font-family: 'Roboto', sans-serif;
 }

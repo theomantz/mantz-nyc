@@ -9,7 +9,7 @@
 }
 
 .section-ul {
-  font-size: 1rem;
+  font-size: 0.8rem;
   padding-left: 0;
   width: 100%;
 }
@@ -19,7 +19,17 @@
 }
 
 .section-ul-title {
-  margin-left: 14%;
-  color: rgb(75, 73, 73);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-left: 12%;
+  color: rgb(26, 27, 27);
+  border-top: 1px solid rgba(26, 27, 27, 0.2);
+}
+
+.section-list-item {
+  margin: 3px 5px;
+  border-radius: 3px;
+}
+
+.section-list-item:hover {
+  background-color: rgba(75, 73, 73, 0.3);
+  cursor: pointer;
 }
