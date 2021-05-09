@@ -1,0 +1,78 @@
+textarea:focus, input:focus {
+  outline: none;
+}
+
+#spotlight-container {
+  min-height: fit-content;
+  max-height: 300px;
+  width: 90%;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  font-size: 2rem;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  transition: height 0.2s ease-out;
+}
+
+#spotlight-container:after {
+  background: inherit;
+  backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+  content: '';
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+#spotlight-inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+}
+
+#searchIcon-container {
+  height: 100%;
+  width: 10%;
+  padding-left: 0.5rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#searchIcon {
+  z-index: 5;
+  color: rgb(75, 73, 73);
+  height: 45%;
+  width: auto;
+}
+
+#inputArea-container {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#inputArea {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  box-sizing: border-box;
+  border: none;
+  z-index: 2;
+  font-size: 1.6rem;
+  color: rgb(75, 73, 73);
+  font-family: 'Roboto', sans-serif;
+}

@@ -2,7 +2,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react'
 import keys  from './config/keys'
 import axios from 'axios'
-import SpotlightSearch from './components/spotlight-search/spotlight-search'
+import SpotlightSearch from './components/spotlight-search/SpotlightSearch'
 
 const App = () => {
   
@@ -10,15 +10,22 @@ const App = () => {
 
   const imageSize = window.innerWidth >= 650 ? 'landscape' : 'portrait'
 
-  const useEffect = () => {
-    fetchUrl()
-  }
+  const defaultBackground = {backgroundColor: "white"}
 
-  const fetchUrl = () => {
-    axios
+  useEffect(() => {
+    if(!imageURL) {
+      fetchUrl()
+    }
+    window.addEventListener('resize', () => {
+      fetchUrl()
+    })
+  })
+
+  const fetchUrl = async () => {
+    const res = await axios
       .get("https://api.unsplash.com/photos/random/", {
         headers: {
-          Authorization: `Client-ID ${keys.unsplashAccessKey}`,
+          Authorization: `Client-ID ${keys().unsplashAccessKey}`,
         },
         params: {
           content_filter: "high",
@@ -26,21 +33,32 @@ const App = () => {
           topics: "wallpapers",
         },
       })
-      .then((res) => {
-        debugger
-        setImageURL(res.urls.full);
-      })
-      .catch((err) => console.log(err));
+      
+    if (res.status === 200) {
+      setImageURL(res.data.urls.full)
+      console.log(res.data)
+      return res.data.urls.full
+    } else {
+      console.log(res)
+    }
   }
 
-  return (
-    <div className="App" style={{backgroundImage: `url(${imageURL})`}}>
-      <header className="App-header">
-
-      </header>
-        <SpotlightSearch/>
-    </div>
-  );
+  if( imageURL ) {
+      return (
+        <div className="App" style={imageURL ? 
+        {backgroundImage: `url(${imageURL})`} : 
+        defaultBackground} 
+        >
+          <div id='BackgroundCenter'>
+            <SpotlightSearch/>
+          </div>
+        </div>
+    );
+  } else {
+    return (
+      null
+    )
+  }
   
 }
 
