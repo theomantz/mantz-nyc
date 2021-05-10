@@ -31,6 +31,12 @@ const SpotlightSearch = () => {
       }); 
     }
   })
+
+  const activeIcon = () => {
+    return (
+      null
+    )
+  }
   
   return (
     <div id="spotlight-container">
@@ -48,8 +54,9 @@ const SpotlightSearch = () => {
               e => setSearch(e.currentTarget.value)
             }
           />
+          {activeIcon()}
         </div>
-      </div>
+    </div>
       <SearchList active={active} />
     </div>
   );
