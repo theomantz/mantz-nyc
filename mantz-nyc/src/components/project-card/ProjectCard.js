@@ -1,5 +1,5 @@
 
-const ProjectsPage = () => {
+const ProjectCard = () => {
 
   return (
     null
@@ -7,4 +7,4 @@ const ProjectsPage = () => {
   
 }
 
-export default ProjectsPage
+export default ProjectCard

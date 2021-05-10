@@ -25,19 +25,12 @@ const SpotlightSearch = () => {
         typeSpeed: 50,
         backSpeed: 50,
         onComplete: (self) => {
-          setSearch('Theo Mantz')
-          setActive(true)
-        }
-      });
+          setSearch("Theo Mantz");
+          setActive(true);
+        },
+      }); 
     }
   })
-  
-  const searchList = () => {
-    if(!active) return null
-    return (
-      <SearchList />
-    )
-  }
   
   return (
     <div id="spotlight-container">

@@ -1,8 +1,7 @@
 
 import './SearchList.css'
 import { v4 as uuidv4 } from 'uuid'
-import ProjectCard from '../project-card/ProjectCard'
-import AboutCard from '../about-card/AboutCard'
+import ContactCard from '../contact-card/ContactCard'
 
 const SearchList = ({ active }) => {
 
@@ -13,7 +12,7 @@ const SearchList = ({ active }) => {
     'About': ['About placeholder'],
     'Experience': ['Experience placeholder'],
     'Resume': ['Resume Card Placeholder'],
-    'Contact': ['Contact Card']
+    'Contact': [<ContactCard />]
   }
 
   const searchList = []
@@ -29,7 +28,9 @@ const SearchList = ({ active }) => {
         key={uuidv4()}>{key}</li>
         {value.map(v => {
           return ( 
-            <div className='list-item-outer-container'>
+            <div 
+              className='list-item-outer-container'
+              key={uuidv4()}>
               <li
               key={uuidv4()} 
               className='section-list-item'

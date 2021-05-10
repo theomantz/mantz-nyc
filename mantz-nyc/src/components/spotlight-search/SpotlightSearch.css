@@ -4,8 +4,8 @@ textarea:focus, input:focus {
 
 #spotlight-container {
   min-height: fit-content;
-  max-height: 300px;
-  width: 90%;
+  max-height: 350px;
+  width: 100%;
   max-width: 550px;
   display: flex;
   flex-direction: column;
@@ -35,14 +35,14 @@ textarea:focus, input:focus {
   justify-content: space-between;
   align-items: center;
   height: 50px;
-  width: 100%;
+  width: 97%;
   z-index: 1;
 }
 
 #searchIcon-container {
   height: 100%;
-  width: 10%;
-  padding-left: 0.5rem;
+  width: 7%;
+  /* padding-left: 0.5rem; */
   z-index: 2;
   display: flex;
   flex-direction: row;
@@ -53,12 +53,12 @@ textarea:focus, input:focus {
 #searchIcon {
   z-index: 5;
   color: rgb(26, 27, 27);
-  height: 45%;
+  height: 1.2rem;
   width: auto;
 }
 
 #inputArea-container {
-  width: 90%;
+  width: 93%;
   height: 100%;
   display: flex;
   flex-direction: column;
