@@ -14,7 +14,7 @@
   font-size: 1rem;
   padding-left: 0;
   width: 100%;
-  border-top: 1px solid rgba(26, 27, 27, 0.2);
+  border-top: 1px solid rgba(249, 253, 253, 0.377);
 }
 
 .section-ul-title, .section-list-item {
@@ -23,7 +23,7 @@
 
 .section-ul-title {
   padding-left: 8.5%;
-  color: rgb(26, 27, 27);
+  color: white;
   width: 97%;
   box-sizing: border-box;
 }
@@ -37,10 +37,11 @@
   border-radius: 3px;
   width: 97%;
   box-sizing: border-box;
+  color: white;
 }
 
 .section-list-item:hover {
-  background-color: rgba(75, 73, 73, 0.3);
+  background-color: #0066cceb;
   cursor: pointer;
 }
 

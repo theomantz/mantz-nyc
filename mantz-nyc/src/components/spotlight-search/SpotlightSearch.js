@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Typed from 'typed.js'
 import SearchList from '../search-list/SearchList'
-import { 
+import { Context } from '../../store/store'
+import {
   ReactComponent as SearchIcon 
 } from '../../assets/searchIcon.svg'
 
@@ -9,28 +10,32 @@ import './SpotlightSearch.css'
 
 const SpotlightSearch = () => {
 
+  
+  const [state, dispatch] = useContext(Context)
   const [active, setActive] = useState(false);
   const [search, setSearch] = useState('');
+  const [firstScale, setFirstScale] = useState({})
 
   useEffect(() => {
-    if(!active) {
-      const typed = new Typed("#inputArea", {
-        strings: [
-          "Software Engineer",
-          "Software Developer ",
-          "Good jokes",
-          "Theo Mantz",
-        ],
-        smartBackspace: true,
-        typeSpeed: 50,
-        backSpeed: 50,
-        onComplete: (self) => {
-          setSearch("Theo Mantz");
-          setActive(true);
-        },
-      }); 
+    const typed = new Typed("#inputArea", {
+      strings: [
+        "Software Engineer",
+        "Software Developer ",
+        "Good jokes",
+        "Theo Mantz",
+      ],
+      smartBackspace: true,
+      typeSpeed: 50,
+      backSpeed: 50,
+      onComplete: (self) => {
+        setSearch("Theo Mantz");
+        setActive(true);
+      },
+    });
+    return () => {
+      typed.destroy()
     }
-  })
+  }, [])
 
   const activeIcon = () => {
     return (
@@ -39,7 +44,10 @@ const SpotlightSearch = () => {
   }
   
   return (
-    <div id="spotlight-container">
+    <div 
+      id="spotlight-container"
+
+    >
       <div id="spotlight-inner">
         <div id="searchIcon-container">
           <SearchIcon id="searchIcon" />
@@ -53,6 +61,7 @@ const SpotlightSearch = () => {
             onChange={
               e => setSearch(e.currentTarget.value)
             }
+            onClick={e => setActive(true)}
           />
           {activeIcon()}
         </div>

@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react'
 import keys  from './config/keys'
 import axios from 'axios'
+import Store from './store/store'
 import SpotlightSearch from './components/spotlight-search/SpotlightSearch'
 
 const App = () => {
@@ -36,7 +37,6 @@ const App = () => {
       
     if (res.status === 200) {
       setImageURL(res.data.urls.full)
-      console.log(res.data)
       return res.data.urls.full
     } else {
       console.log(res)
@@ -45,14 +45,17 @@ const App = () => {
 
   if( imageURL ) {
       return (
-        <div className="App" style={imageURL ? 
-        {backgroundImage: `url(${imageURL})`} : 
-        defaultBackground} 
-        >
-          <div id='BackgroundCenter'>
-            <SpotlightSearch/>
+        <Store>
+          <div 
+            className="App" 
+            style={{backgroundImage: `url(${imageURL})`}}>
+
+            <div id='BackgroundCenter'>
+              <SpotlightSearch/>
+            </div>
+
           </div>
-        </div>
+        </Store>
     );
   } else {
     return (

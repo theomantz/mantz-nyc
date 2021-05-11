@@ -18,3 +18,10 @@
   height: 1rem;
   margin: 0 auto;
 }
+
+.contact-card-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}

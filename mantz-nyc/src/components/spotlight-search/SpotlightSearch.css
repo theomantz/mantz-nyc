@@ -12,17 +12,19 @@ textarea:focus, input:focus {
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
   font-size: 2rem;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.6rem;
   transition: height 0.2s ease-out;
 }
 
 #spotlight-container:after {
-  background: inherit;
-  backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+  background: rgba( 0, 0, 0, 0.70 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 9.0px );
+  -webkit-backdrop-filter: blur( 9.0px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
   content: '';
   height: 100%;
   position: absolute;
@@ -42,7 +44,6 @@ textarea:focus, input:focus {
 #searchIcon-container {
   height: 100%;
   width: 7%;
-  /* padding-left: 0.5rem; */
   z-index: 2;
   display: flex;
   flex-direction: row;
@@ -52,7 +53,7 @@ textarea:focus, input:focus {
 
 #searchIcon {
   z-index: 5;
-  color: rgb(26, 27, 27);
+  color: white;
   height: 1.2rem;
   width: auto;
 }
@@ -74,6 +75,6 @@ textarea:focus, input:focus {
   border: none;
   z-index: 2;
   font-size: 1.6rem;
-  color: rgb(26, 27, 27);
+  color: white;
   font-family: 'Roboto', sans-serif;
 }
