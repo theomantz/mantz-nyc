@@ -22,24 +22,44 @@ const SpotlightSearch = () => {
   const [active, setActive] = useState(false);
   const [search, setSearch] = useState('');
   
-  const {x, y} = state.dims
-  // let spotlightContainerStyle = {
-  //   width:  '50vw',
-  //   minHeight: '50px',
-  //   maxHeight: '350px',
-  // }
+  const vhToPixel = value => `${(window.innerHeight * value) / 100}px`
+  const vwToPixel = value => `${(window.innerWidth * value) / 100}px`
 
-  let spotlightContainerSpring = useSpring({
-    config: { ...config.stiff },
-    from: {
-      height: state.ui ? "350px" : "50px",
-      width: "50vw",
-    },
-    to: {
-      height: state.ui ? y * 0.8 : "350px",
-      width: state.ui ? x * 0.8 : "50vw"
-    },
-  });
+  let springConfig
+  if (!active && !state.ui) {
+    springConfig = {
+      from: {
+        opacity: 0,
+      },
+      to: {
+        opacity: 1,
+        height: '50px',
+        width: vwToPixel(50)
+      }
+    }
+  } else if (active && !state.ui) {
+    springConfig = {
+      config: {...config.stiff},
+      from: {
+        height: '50px',
+        width: vwToPixel(50)
+      },
+      to: {
+        height: '300px',
+        width: vwToPixel(50)
+      }
+    }
+  } else if (state.ui) {
+    springConfig = {
+      config: {...config.stiff},
+      to: {
+        height: vhToPixel(85),
+        width: vwToPixel(85)
+      }
+    }
+  }
+
+  let spotlightContainerSpring = useSpring(springConfig);
 
   useEffect(() => {
     getWindowDimensions()
@@ -79,13 +99,6 @@ const SpotlightSearch = () => {
     dispatch({type: DIMS, payload: { x: window.width, y: window.height } } )
   }
 
-  if( state.ui ) {
-    // spotlightContainerStyle = {
-    //   width: x * 0.8,
-    //   height: y * 0.8
-    // };
-  }
-
   let inputArea;
   if( !state.ui ) {
     inputArea = (
@@ -107,8 +120,6 @@ const SpotlightSearch = () => {
     )
   }
 
-
-  
   return (
     <animated.div 
       id="spotlight-container"

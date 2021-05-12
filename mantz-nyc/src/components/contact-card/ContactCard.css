@@ -47,6 +47,12 @@
   align-items: center;
 }
 
+.socials-list {
+  display: flex;
+  direction: row;
+
+}
+
 .basic-contact-info {
   display: flex;
   flex-direction: column;
@@ -69,4 +75,25 @@
 .contact-subtext {
   font-size: 1rem;
   font-weight: 700;
+  text-align: center;
+}
+
+.socials-link-container {
+  margin: 1rem;
+}
+
+.socials-link-icon {
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 4rem;
+  height: auto;
+  transition: all 0.5s;
+}
+
+.socials-link-icon:hover {
+  transform: scale(1.05);
+}
+
+#linkedin-link-icon {
+  color: white;
 }

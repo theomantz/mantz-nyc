@@ -3,6 +3,7 @@ import { Context } from "../../store/store";
 import './SearchList.css'
 import { v4 as uuidv4 } from 'uuid'
 import ContactCard from '../contact-card/ContactCard'
+import { useSpring, config, animated } from "react-spring";
 import ContactCardList from '../contact-card/ContactCardList'
 import {
   EXPANDED,
@@ -16,18 +17,32 @@ const SearchList = ({ active }) => {
   const [state, dispatch] = useContext(Context)
   const [card, setCard] = useState(null)
 
+  const contentSpring = useSpring({
+    from: { opacity: 0 },
+    to: { 
+      opacity: 1,
+      height: '100%'
+    },
+  });
+  
   if(!active) return null
 
   let contentAreaStyle = {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    height: '100px'
   }
-
 
   const renderCard = () => {
     if(!card) return null
+    let contentCard
     if(card === 'Contact') {
-      return <ContactCard />
+      contentCard = <ContactCard />
     }
+    return (
+      <animated.div style={contentSpring}>
+        {contentCard}
+      </animated.div>
+    )
   };
 
   const handleClick = (type) => {
