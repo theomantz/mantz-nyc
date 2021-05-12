@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 import keys  from './config/keys'
 import axios from 'axios'
 import Store from './store/store'
@@ -9,18 +9,19 @@ const App = () => {
   
   const [imageURL, setImageURL] = useState(null)
 
+
   const imageSize = window.innerWidth >= 650 ? 'landscape' : 'portrait'
 
-  const defaultBackground = {backgroundColor: "white"}
-
   useEffect(() => {
-    if(!imageURL) {
-      fetchUrl()
-    }
+
+    fetchUrl()
+
     window.addEventListener('resize', () => {
       fetchUrl()
     })
-  })
+    
+  }, [])
+
 
   const fetchUrl = async () => {
     const res = await axios

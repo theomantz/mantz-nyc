@@ -1,15 +1,17 @@
 import React, { createContext, useReducer } from 'react'
 import uiReducer from '../reducers/uiReducer'
-import {
-  CONDENSED
-} from '../reducers/uiReducer'
 
 const initialState = {
-  ui: CONDENSED
+  ui: false,
+  dims: {},
+  icon: null
 }
 
 const Store = ({children}) => {
   const [state, dispatch] = useReducer(uiReducer, initialState)
+  if( process.env.NODE_ENV !== 'production') {
+    console.log(state)
+  }
   return (
     <Context.Provider value={[state, dispatch]}>
       {children}
