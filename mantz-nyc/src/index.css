@@ -1,9 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+:root {
+  --celadon-green: #36827fff;
+  --blue-ryb: #2f52e0ff;
+  --umber: #554640ff;
+  --light-gray: #ced0ceff;
+  --raisin-black: #2e2c2fff;
+}
+
 html {
   font-size: 16px;
-  color: white;
+  color: var(--light-gray);
 }
+
 
 @media (max-width: 900px) {
   html { font-size: 13px; }

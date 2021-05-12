@@ -23,7 +23,6 @@
 
 .section-ul-title {
   padding-left: 8.5%;
-  color: white;
   width: 97%;
   box-sizing: border-box;
 }
@@ -37,11 +36,10 @@
   border-radius: 3px;
   width: 97%;
   box-sizing: border-box;
-  color: white;
 }
 
 .section-list-item:hover {
-  background-color: #0066cceb;
+  background-color: var(--blue-ryb);
   cursor: pointer;
 }
 

@@ -61,6 +61,7 @@ const SpotlightSearch = () => {
 
   let spotlightContainerSpring = useSpring(springConfig);
 
+
   useEffect(() => {
     getWindowDimensions()
     const typed = new Typed("#inputArea", {
@@ -114,7 +115,7 @@ const SpotlightSearch = () => {
   } else {
     inputArea = (
       <span
-        id='inputArea'>
+        id='inputArea-text'>
         Theo Mantz
       </span>
     )

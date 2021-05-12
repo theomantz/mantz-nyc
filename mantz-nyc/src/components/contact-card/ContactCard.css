@@ -31,11 +31,11 @@
   flex-direction: column;
   align-items: center;
   height: 80%;
+  width: 100%;
   justify-content: space-evenly;
 }
 
 .contact-card-name {
-  color: white;
   margin-top: 20px;
   font-weight: 700;
   font-size: 2rem;
@@ -45,6 +45,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .socials-list {
@@ -58,17 +59,42 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .contact-info-item {
-  width: 100%;
+  width: fit-content;
+  padding: 1rem;
+  margin: 2rem 1rem;
+  border-radius: 1.5rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+#location-icon {
+  margin-right: 1.5rem;
+}
+
+#email-icon {
+  width: 1.5rem;
+  height: auto;
+  margin-right: 1.5rem;
+}
+
+/* .contact-info-item.location {
+
+} */
+
+.contact-info-item:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  background-color: var(--umber);
 }
 
 .contact-card-text {
-  color: white;
   font-size: 1.5rem;
 }
 
@@ -78,22 +104,40 @@
   text-align: center;
 }
 
+.socials-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 2rem 1rem;
+  width: 80%;
+}
+
 .socials-link-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 1rem;
+  padding: 1rem;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 0.6rem;
+  transition: all 0.5s;
+}
+
+.socials-link-container:hover {
+  background-color: var(--umber);
 }
 
 .socials-link-icon {
   cursor: pointer;
   box-sizing: border-box;
-  width: 4rem;
-  height: auto;
+  width: auto;
+  height: 4rem;
   transition: all 0.5s;
+  margin: 0 auto;
 }
 
 .socials-link-icon:hover {
   transform: scale(1.05);
-}
-
-#linkedin-link-icon {
-  color: white;
 }
