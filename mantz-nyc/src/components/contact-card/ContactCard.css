@@ -1,29 +1,9 @@
-.contact-card-list-container {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-}
-
-.contact-card-icon-container {
-  width: 7%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-.contact-icon {
-  width: auto;
-  height: 1rem;
-  margin: 0 auto;
-}
-
 .contact-card-image {
   width: 200px;
   height: 200px;
   object-fit: cover;
   border-radius: 50%;
+  margin-top: 5%;
 }
 
 .contact-info-container {
@@ -33,6 +13,12 @@
   height: 80%;
   width: 100%;
   justify-content: space-evenly;
+}
+
+.name-location-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .contact-card-name {
@@ -64,38 +50,40 @@
 
 .contact-info-item {
   width: fit-content;
-  padding: 1rem;
-  margin: 2rem 1rem;
+  padding: 0.5rem 1rem;
+  margin: 1rem;
   border-radius: 1.5rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   cursor: pointer;
   transition: all 0.5s;
 }
 
-#location-icon {
-  margin-right: 1.5rem;
+.contact-info-item a {
+  text-decoration: none;
+  color: var(--light-gray);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-#email-icon {
+#email-icon, #call-icon, #location-icon {
   width: 1.5rem;
   height: auto;
   margin-right: 1.5rem;
 }
 
-/* .contact-info-item.location {
-
-} */
-
 .contact-info-item:hover {
   cursor: pointer;
   transform: scale(1.05);
-  background-color: var(--umber);
+  background-color: var(--blue-ryb);
 }
 
 .contact-card-text {
   font-size: 1.5rem;
+  line-height: 1.5rem;
 }
 
 .contact-subtext {

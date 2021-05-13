@@ -1,0 +1,11 @@
+.about-card-name {
+  margin: 2rem;
+}
+
+.about-card-text {
+  font-size: 1rem;
+  margin: 1rem;
+  text-align: center;
+  width: 60%;
+  line-height: 2rem;
+}

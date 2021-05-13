@@ -1,5 +1,5 @@
 
-const ProjectCard = () => {
+const ProjectCard = ({ active }) => {
 
   return (
     null

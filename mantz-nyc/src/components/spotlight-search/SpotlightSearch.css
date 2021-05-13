@@ -46,10 +46,19 @@ textarea:focus, input:focus {
   align-items: center;
 }
 
-#searchIcon {
+#searchIcon, #hamburgerIcon {
   z-index: 5;
-  height: 1.2rem;
+  height: 1.5rem;
   width: auto;
+}
+
+#hamburgerIcon {
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+#hamburgerIcon:hover {
+  transform: scale(1.2);
 }
 
 #inputArea-container {

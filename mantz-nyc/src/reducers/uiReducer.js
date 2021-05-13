@@ -3,6 +3,7 @@ export const DIMS = 'DIMS';
 export const EXPANDED = 'EXPANDED';
 export const CONDENSED = 'CONDENSED';
 export const ACTIVE_ICON = 'ACTIVE_ICON'
+export const ACTIVE_CARD = 'ACTIVE_CARD'
 
 const uiReducer = ( state, action ) => {
 
@@ -22,6 +23,11 @@ const uiReducer = ( state, action ) => {
         ...state,
         dims: action.payload
       };
+    case ACTIVE_CARD:
+      return {
+        ...state,
+        card: action.payload
+      }
     default:
       return state;
   }

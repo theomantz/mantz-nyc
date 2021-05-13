@@ -1,31 +1,35 @@
-import React, { useState, useEffect, useContext } from 'react'
-import Typed from 'typed.js'
-import SearchList from '../search-list/SearchList'
-import { Context } from '../../store/store'
-import { useSpring, config, animated } from "react-spring";
+import "./SpotlightSearch.css";
+import React, { useState, useEffect, useContext } from "react";
+import Typed from "typed.js";
+import SearchList from "../search-list/SearchList";
+import { Context } from "../../store/store";
+import { useSpring, useTransition, config, animated } from "react-spring";
 import {
+  ACTIVE_CARD,
+  ACTIVE_ICON,
   DIMS,
-} from '../../reducers/uiReducer'
-import {
-  ReactComponent as SearchIcon 
-} from '../../assets/searchIcon.svg'
-import {
-  ReactComponent as ContactIcon 
-} from '../../assets/contactIcon.svg'
-import './SpotlightSearch.css'
+  EXPANDED,
+} from "../../reducers/uiReducer";
 
+import { ReactComponent as ContactIcon } from '../../assets/contactIcon.svg';
+
+import { ReactComponent as SearchIcon } from "../../assets/searchIcon.svg";
+
+import { ReactComponent as AddressIcon } from "../../assets/addressIcon.svg";
+
+import { ReactComponent as HamburgerIcon } from "../../assets/hamburgerIcon.svg"
 
 const SpotlightSearch = () => {
 
-  
-  const [state, dispatch] = useContext(Context)
-  const [active, setActive] = useState(false);
-  const [search, setSearch] = useState('');
-  
-  const vhToPixel = value => `${(window.innerHeight * value) / 100}px`
-  const vwToPixel = value => `${(window.innerWidth * value) / 100}px`
 
-  let springConfig
+  const [state, dispatch] = useContext(Context);
+  const [active, setActive] = useState(false);
+  const [search, setSearch] = useState("");
+
+  const vhToPixel = (value) => `${(window.innerHeight * value) / 100}px`;
+  const vwToPixel = (value) => `${(window.innerWidth * value) / 100}px`;
+
+  let springConfig;
   if (!active && !state.ui) {
     springConfig = {
       from: {
@@ -33,37 +37,122 @@ const SpotlightSearch = () => {
       },
       to: {
         opacity: 1,
-        height: '50px',
-        width: vwToPixel(50)
-      }
-    }
+        height: "50px",
+        width: vwToPixel(50),
+      },
+    };
   } else if (active && !state.ui) {
     springConfig = {
-      config: {...config.stiff},
+      config: { ...config.stiff },
       from: {
-        height: '50px',
-        width: vwToPixel(50)
+        height: "50px",
+        width: vwToPixel(50),
       },
       to: {
-        height: '300px',
-        width: vwToPixel(50)
-      }
-    }
+        height: "280px",
+        width: vwToPixel(50),
+      },
+    };
   } else if (state.ui) {
     springConfig = {
-      config: {...config.stiff},
+      config: { ...config.stiff },
       to: {
         height: vhToPixel(85),
-        width: vwToPixel(85)
-      }
-    }
+        width: vwToPixel(85),
+      },
+    };
   }
 
+  const handleSearchClick = () => {
+    if (state.ui) {
+      dispatch({ type: EXPANDED, payload: false });
+      dispatch({ type: ACTIVE_CARD, payload: null });
+      dispatch({ type: ACTIVE_ICON, payload: null });
+    }
+  };
+
+  const MenuIcon = () => {
+    const transitions = useTransition(state.ui, {
+      from: { opacity: 0, transform: "translate3d(-25%, 0px, 0px)" },
+      enter: { opacity: 1, transform: "translate3d(0%, 0px, 0px)" },
+      leave: { opacity: 0, height: 0, width: 0, transform: "translate3d(25%, 0px, 0px)" },
+      trail: 1000,
+      config: config.gentle,
+    });
+    const baseDivStyles = {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "center",
+      alignItems: "center"
+    }
+    return transitions((styles, item) =>
+      item ? (
+        <animated.div style={{ ...styles, ...baseDivStyles }}>
+          <HamburgerIcon
+            id="hamburgerIcon"
+            onClick={(e) => handleSearchClick()}
+          />
+        </animated.div>
+      ) : (
+        <animated.div style={{ ...styles, ...baseDivStyles }}>
+          <SearchIcon id="searchIcon" />
+        </animated.div>
+      )
+    );
+  };
+
+  const icons = {
+    'About': <AddressIcon id='input-icon'/>,
+    'Contact': <ContactIcon id='input-icon'/>,
+  }
+
+
+  const ActiveIcon = () => {
+    const transitions = useTransition(state.icon, {
+      from: { opacity: 0, transform: "translate3d(25%, 0px, 0px)" },
+      enter: { opacity: 1, transform: "translate3d(0%, 0px, 0px)" },
+      leave: { opacity: 0, height: 0, transform: "translate3d(-25%, 0px, 0px)" },
+      trail: 1000,
+      config: config.gentle,
+    });
+    return transitions((styles, item) => {
+      return (
+        <animated.div style={styles}>
+          {icons[item]}
+        </animated.div>
+      )
+    })
+  }
+
+  const headers = {
+    About: "About",
+    Contact: "Contact",
+    Projects: "My Projects",
+    Experience: "Experience",
+    Education: "Education",
+  };
+
+  const ActiveHeader = () => {
+    const transitions = useTransition(state.icon, {
+      from: { opacity: 0, transform: "translate3d(25%, 0px, 0px)" },
+      enter: { opacity: 1, transform: "translate3d(0%, 0px, 0px)" },
+      leave: {
+        opacity: 0,
+        height: 0,
+        transform: "translate3d(-25%, 0px, 0px)",
+      },
+      trail: 1000,
+      config: config.gentle,
+    });
+    return transitions((styles, item) => {
+      return <animated.div style={styles}>{icons[item]}</animated.div>;
+    });
+  };
+  
   let spotlightContainerSpring = useSpring(springConfig);
 
-
   useEffect(() => {
-    getWindowDimensions()
+    getWindowDimensions();
     const typed = new Typed("#inputArea", {
       strings: [
         "Software Engineer",
@@ -80,28 +169,21 @@ const SpotlightSearch = () => {
       },
     });
     return () => {
-      typed.destroy()
-    }
-  }, [])
+      typed.destroy();
+    };
+  }, []);
 
-  const activeIcon = () => {
-    switch(state.icon) {
-      case "Contact":
-        return <ContactIcon id="input-icon"/>
-      default:
-        return null
-    }
-  }
+
 
   const getWindowDimensions = () => {
-    const root = document.querySelector('#root')
-    const window = root.getBoundingClientRect()
+    const root = document.querySelector("#root");
+    const window = root.getBoundingClientRect();
 
-    dispatch({type: DIMS, payload: { x: window.width, y: window.height } } )
-  }
+    dispatch({ type: DIMS, payload: { x: window.width, y: window.height } });
+  };
 
   let inputArea;
-  if( !state.ui ) {
+  if (!state.ui) {
     inputArea = (
       <input
         type="text"
@@ -113,31 +195,23 @@ const SpotlightSearch = () => {
       />
     );
   } else {
-    inputArea = (
-      <span
-        id='inputArea-text'>
-        Theo Mantz
-      </span>
-    )
+    inputArea = <span id="inputArea-text">Theo Mantz</span>;
   }
 
   return (
-    <animated.div 
-      id="spotlight-container"
-      style={spotlightContainerSpring}
-    >
+    <animated.div id="spotlight-container" style={spotlightContainerSpring}>
       <div id="spotlight-inner">
         <div id="searchIcon-container">
-          <SearchIcon id="searchIcon" />
+          {MenuIcon()}
         </div>
         <div id="inputArea-container">
           {inputArea}
-          {activeIcon()}
+          {ActiveIcon()}
         </div>
-    </div>
+      </div>
       <SearchList active={active} />
     </animated.div>
   );
-}
+};
 
 export default SpotlightSearch;

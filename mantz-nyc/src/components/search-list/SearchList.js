@@ -1,13 +1,13 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Context } from "../../store/store";
 import './SearchList.css'
 import { v4 as uuidv4 } from 'uuid'
+import AboutCard from '../about-card/AboutCard'
 import ContactCard from '../contact-card/ContactCard'
-import { useSpring, config, animated } from "react-spring";
-import ContactCardList from '../contact-card/ContactCardList'
+import { useSpring, animated, config } from "react-spring";
 import {
   EXPANDED,
-  CONDENSED,
+  ACTIVE_CARD,
   ACTIVE_ICON,
 } from '../../reducers/uiReducer'
 
@@ -15,13 +15,19 @@ const SearchList = ({ active }) => {
 
   // State hooks
   const [state, dispatch] = useContext(Context)
-  const [card, setCard] = useState(null)
+
+  const vhInnerToPixel = (value) => `${(( window.innerHeight - 50)* value) / 100}px`;
+  const vwToPixel = (value) => `${(window.innerWidth * value) / 100}px`;
 
   const contentSpring = useSpring({
-    from: { opacity: 0 },
+    config: {...config.stiff},
+    from: {
+      opacity: 0,
+    },
     to: { 
       opacity: 1,
-      height: '100%'
+      height: vhInnerToPixel(85),
+      width: vwToPixel(85)
     },
   });
   
@@ -33,10 +39,13 @@ const SearchList = ({ active }) => {
   }
 
   const renderCard = () => {
+    const { card } = state
     if(!card) return null
     let contentCard
     if(card === 'Contact') {
-      contentCard = <ContactCard />
+      contentCard = <ContactCard active={state.card === 'Contact'}/>
+    } else if (card === 'About') {
+      contentCard = <AboutCard active={state.card === 'About'} />
     }
     return (
       <animated.div style={contentSpring}>
@@ -48,7 +57,7 @@ const SearchList = ({ active }) => {
   const handleClick = (type) => {
     return (
       e => {
-        setCard(type)
+        dispatch({type: ACTIVE_CARD, payload: type})
         dispatch({type: EXPANDED, payload: true })
         dispatch({type: ACTIVE_ICON, payload: type})
       }
@@ -58,13 +67,17 @@ const SearchList = ({ active }) => {
 
   
   const sectionHeaders = {
-    'Projects': ['mooboo', 'wtrcoolr', 'DrivingDoge'],
-    'About': ['About placeholder'],
+    'About': [
+      <div onClick={handleClick('About')}>
+        <AboutCard />
+      </div>
+    ],
+    'Work': ['Projects', 'Skills'],
     'Experience': ['Experience placeholder'],
-    'Resume': ['Resume Card Placeholder'],
+    'Education': ['Education'],
     'Contact': [
       <div onClick={handleClick("Contact")} >
-        <ContactCardList />
+        <ContactCard />
       </div>
     ]
   }
@@ -112,7 +125,6 @@ const SearchList = ({ active }) => {
 
   const renderSearchList = () => {
     if(state.ui) return null
-
     return (
       <ul 
         className="search-list-container"
@@ -128,7 +140,7 @@ const SearchList = ({ active }) => {
       style={contentAreaStyle}
     >
       {renderSearchList()}
-      {renderCard(card)}
+      {renderCard()}
     </div>
   )
   

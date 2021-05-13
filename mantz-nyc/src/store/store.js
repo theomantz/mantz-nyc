@@ -4,7 +4,8 @@ import uiReducer from '../reducers/uiReducer'
 const initialState = {
   ui: false,
   dims: {},
-  icon: null
+  icon: null,
+  card: null
 }
 
 const Store = ({children}) => {
