@@ -17,6 +17,8 @@ import { ReactComponent as SearchIcon } from "../../assets/searchIcon.svg";
 
 import { ReactComponent as AddressIcon } from "../../assets/addressIcon.svg";
 
+import { ReactComponent as ProjectIcon } from "../../assets/projectIcon.svg";
+
 import { ReactComponent as HamburgerIcon } from "../../assets/hamburgerIcon.svg"
 
 const SpotlightSearch = () => {
@@ -104,6 +106,7 @@ const SpotlightSearch = () => {
   const icons = {
     'About': <AddressIcon id='input-icon'/>,
     'Contact': <ContactIcon id='input-icon'/>,
+    'Projects': <ProjectIcon id='input-icon'/>
   }
 
 
@@ -125,29 +128,43 @@ const SpotlightSearch = () => {
   }
 
   const headers = {
-    About: "About",
-    Contact: "Contact",
-    Projects: "My Projects",
-    Experience: "Experience",
-    Education: "Education",
+    'About': "About",
+    'Contact': "Contact",
+    'Projects': "My Projects",
+    'Experience': "Experience",
+    'Education': "Education",
   };
 
-  const ActiveHeader = () => {
-    const transitions = useTransition(state.icon, {
-      from: { opacity: 0, transform: "translate3d(25%, 0px, 0px)" },
-      enter: { opacity: 1, transform: "translate3d(0%, 0px, 0px)" },
-      leave: {
-        opacity: 0,
-        height: 0,
-        transform: "translate3d(-25%, 0px, 0px)",
-      },
-      trail: 1000,
-      config: config.gentle,
-    });
-    return transitions((styles, item) => {
-      return <animated.div style={styles}>{icons[item]}</animated.div>;
-    });
-  };
+  // const ActiveHeader = () => {
+  //   debugger
+  //   const transitions = useTransition(state.card, {
+  //     from: { opacity: 0, transform: "translate3d(25%, 0px, 0px)" },
+  //     enter: { opacity: 1, transform: "translate3d(0%, 0px, 0px)" },
+  //     leave: {
+  //       opacity: 0,
+  //       height: 0,
+  //       transform: "translate3d(-25%, 0px, 0px)",
+  //     },
+  //     trail: 1000,
+  //     config: config.gentle,
+  //   });
+  //   return transitions((styles, item) => {
+  //       item ? (
+  //         <animated.div style={styles}>{headers[item]}</animated.div>
+  //       ) : (
+  //         <animated.div style={styles}>
+  //           <input
+  //             type="text"
+  //             id="inputArea"
+  //             placeholder="Search"
+  //             value={search}
+  //             onChange={(e) => setSearch(e.currentTarget.value)}
+  //             onClick={(e) => setActive(true)}
+  //           />
+  //         </animated.div>
+  //       );
+  //   });
+  // };
   
   let spotlightContainerSpring = useSpring(springConfig);
 

@@ -67,9 +67,9 @@ const ContactCard = ({ active }) => {
             </li>
 
             <li className="contact-info-item email">
-              <a href={`mailto:hey@mantz.io?subject=Saw your Site!`}>
+              <a href={`mailto:hey@mantz.io?subject=${encodeURIComponent("Saw your Site!")}`}>
                 <EmailIcon id="email-icon" />
-                <span className="contact-card-text">theo@mantz.nyc</span>
+                <span className="contact-card-text">hey@mantz.io</span>
               </a>
             </li>
           </ul>

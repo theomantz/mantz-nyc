@@ -3,6 +3,7 @@ import { Context } from "../../store/store";
 import './SearchList.css'
 import { v4 as uuidv4 } from 'uuid'
 import AboutCard from '../about-card/AboutCard'
+import ProjectCard from '../project-card/ProjectCard'
 import ContactCard from '../contact-card/ContactCard'
 import { useSpring, animated, config } from "react-spring";
 import {
@@ -46,6 +47,8 @@ const SearchList = ({ active }) => {
       contentCard = <ContactCard active={state.card === 'Contact'}/>
     } else if (card === 'About') {
       contentCard = <AboutCard active={state.card === 'About'} />
+    } else if (card === 'Projects') {
+      contentCard = <ProjectCard active={state.card === 'Projects'} />
     }
     return (
       <animated.div style={contentSpring}>
@@ -67,20 +70,25 @@ const SearchList = ({ active }) => {
 
   
   const sectionHeaders = {
-    'About': [
-      <div onClick={handleClick('About')}>
+    About: [
+      <div onClick={handleClick("About")}>
         <AboutCard />
-      </div>
+      </div>,
     ],
-    'Work': ['Projects', 'Skills'],
-    'Experience': ['Experience placeholder'],
-    'Education': ['Education'],
-    'Contact': [
-      <div onClick={handleClick("Contact")} >
+    Work: [
+      <div onClick={handleClick("Projects")}>
+        <ProjectCard />
+      </div>,
+      "Skills",
+    ],
+    Experience: ["Experience placeholder"],
+    Education: ["Education"],
+    Contact: [
+      <div onClick={handleClick("Contact")}>
         <ContactCard />
-      </div>
-    ]
-  }
+      </div>,
+    ],
+  };
 
   // add on click attribute to all list items which render the respective card
 
