@@ -39,20 +39,20 @@ const SpotlightSearch = () => {
       },
       to: {
         opacity: 1,
-        height: "50px",
-        width: vwToPixel(50),
+        height: vhToPixel(5),
+        width: vwToPixel(65),
       },
     };
   } else if (active && !state.ui) {
     springConfig = {
       config: { ...config.stiff },
       from: {
-        height: "50px",
-        width: vwToPixel(50),
+        height: vhToPixel(5),
+        width: vwToPixel(65),
       },
       to: {
-        height: "280px",
-        width: vwToPixel(50),
+        height: vhToPixel(22),
+        width: vwToPixel(65),
       },
     };
   } else if (state.ui) {
@@ -120,7 +120,7 @@ const SpotlightSearch = () => {
     });
     return transitions((styles, item) => {
       return (
-        <animated.div style={styles}>
+        <animated.div style={{...styles, width: '3rem'}}>
           {icons[item]}
         </animated.div>
       )

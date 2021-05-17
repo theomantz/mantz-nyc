@@ -29,4 +29,5 @@
   align-items: center;
   justify-content: space-evenly;
   padding: 2rem;
+  /* overflow-y: scroll; */
 }

@@ -36,7 +36,7 @@ const SearchList = ({ active }) => {
 
   let contentAreaStyle = {
     flexDirection: 'row',
-    height: '100px'
+    height: '100%'
   }
 
   const renderCard = () => {

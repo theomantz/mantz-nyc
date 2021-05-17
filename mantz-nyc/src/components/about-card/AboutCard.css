@@ -9,3 +9,22 @@
   width: 60%;
   line-height: 2rem;
 }
+
+@media (max-width: 900px) {
+  .about-card-text { 
+    width: 60%; 
+  }
+}
+
+
+
+@media (max-width: 600px) {
+  .about-card-text { 
+    width: 100%;
+    line-height: 1.5rem;
+    margin: 0.5rem;
+  }
+  .about-card-name {
+    margin: 1rem;
+  }
+}

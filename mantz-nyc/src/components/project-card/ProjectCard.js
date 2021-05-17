@@ -16,7 +16,9 @@ const ProjectCard = ({ active }) => {
   } else {
     return (
       <div className='project-card-container'>
-        
+        <div className='collapsed-project-card'>
+          
+        </div>
       </div>
     )
   }
