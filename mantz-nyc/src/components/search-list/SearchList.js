@@ -28,7 +28,7 @@ const SearchList = ({ active }) => {
     to: { 
       opacity: 1,
       height: vhInnerToPixel(85),
-      width: vwToPixel(85)
+      width: state.card === 'Projects' ? vwToPixel(65) : vwToPixel(85)
     },
   });
   
@@ -44,11 +44,15 @@ const SearchList = ({ active }) => {
     if(!card) return null
     let contentCard
     if(card === 'Contact') {
-      contentCard = <ContactCard active={state.card === 'Contact'}/>
+      contentCard = <ContactCard active={card === 'Contact'}/>
     } else if (card === 'About') {
-      contentCard = <AboutCard active={state.card === 'About'} />
-    } else if (card === 'Projects') {
-      contentCard = <ProjectCard active={state.card === 'Projects'} />
+      contentCard = <AboutCard active={card === 'About'} />
+    } else if (card === 'Projects' || card === 'Project Details') {
+      contentCard = (
+        <ProjectCard
+          active={card === "Projects" || card === "Project Details"}
+        />
+      );
     }
     return (
       <animated.div style={contentSpring}>

@@ -1,15 +1,20 @@
 .project-page-container {
+  width: 100%;
+  z-index: 2;
+  margin: 0 auto;
+  padding: 0 0 0.5rem 0;
   display: flex;
   flex-direction: column;
+  text-align: start;
   align-items: center;
-  justify-content: space-evenly;
-  border-top: 1px solid rgba(249, 253, 253, 0.377);
+  box-sizing: border-box;
 }
 
 .project-list-item {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   width: 97%;
   box-sizing: border-box;
   border-radius: 1rem;
@@ -36,12 +41,27 @@
 }
 
 .project-list-item-title {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
   margin: 0.5rem 0;
 }
 
-.project-list-item-description {
+.project-list-props {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem 0;
+  font-size: 2rem;
+  align-items: baseline;
+}
+
+.prop-title {
+  margin-right: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.prop-value {
   font-size: 1.5rem;
+  font-weight: 500;
 }
 

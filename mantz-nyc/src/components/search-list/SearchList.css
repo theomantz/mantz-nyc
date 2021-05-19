@@ -14,6 +14,9 @@
   font-size: 1rem;
   padding-left: 0;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-top: 1px solid rgba(249, 253, 253, 0.377);
 }
 
@@ -25,7 +28,7 @@
   font-size: 0.75rem;
   color: #ced0ce9c;
   margin-top: 0.25rem;
-  padding-left: 3.75rem;
+  padding-left: 3rem;
   width: 97%;
   box-sizing: border-box;
 }

@@ -21,6 +21,10 @@ import { ReactComponent as ProjectIcon } from "../../assets/projectIcon.svg";
 
 import { ReactComponent as HamburgerIcon } from "../../assets/hamburgerIcon.svg"
 
+import moobooSquare from '../../assets/MoobooSquare.png'
+import wtrcoolrSquare from '../../assets/wtrcoolrSquare.png'
+import drivingDogeSquare from '../../assets/drivingDogeSquare.png'
+
 const SpotlightSearch = () => {
 
 
@@ -28,7 +32,19 @@ const SpotlightSearch = () => {
   const [active, setActive] = useState(false);
   const [search, setSearch] = useState("");
 
-  const vhToPixel = (value) => `${(window.innerHeight * value) / 100}px`;
+  let scale;
+  let width = window.innerWidth
+  if(width > 900) {
+    scale = 1
+  } else if (width > 600) {
+    scale = (15/16)
+  } else if (width > 400) {
+    scale = (14/16)
+  } else {
+    scale = (13/16)
+  }
+  
+  const vhToPixel = (value) => `${(window.innerHeight * value * scale) / 100}px`;
   const vwToPixel = (value) => `${(window.innerWidth * value) / 100}px`;
 
   let springConfig;
@@ -43,7 +59,7 @@ const SpotlightSearch = () => {
         width: vwToPixel(65),
       },
     };
-  } else if (active && !state.ui) {
+  } else if (active && (!state.ui || state.card === 'Projects')) {
     springConfig = {
       config: { ...config.stiff },
       from: {
@@ -55,7 +71,7 @@ const SpotlightSearch = () => {
         width: vwToPixel(65),
       },
     };
-  } else if (state.ui) {
+  } else if (state.ui && state.card !== 'Projects') {
     springConfig = {
       config: { ...config.stiff },
       to: {
@@ -66,10 +82,13 @@ const SpotlightSearch = () => {
   }
 
   const handleSearchClick = () => {
-    if (state.ui) {
+    if (state.ui && state.card !== 'Project Details') {
       dispatch({ type: EXPANDED, payload: false });
       dispatch({ type: ACTIVE_CARD, payload: null });
       dispatch({ type: ACTIVE_ICON, payload: null });
+    } else if (state.card === 'Project Details') {
+      dispatch({type: ACTIVE_ICON, payload: 'Projects'})
+      dispatch({type: ACTIVE_CARD, payload: 'Projects'})
     }
   };
 
@@ -106,7 +125,10 @@ const SpotlightSearch = () => {
   const icons = {
     'About': <AddressIcon id='input-icon'/>,
     'Contact': <ContactIcon id='input-icon'/>,
-    'Projects': <ProjectIcon id='input-icon'/>
+    'Projects': <ProjectIcon id='input-icon'/>,
+    'mooboo': <img src={moobooSquare} alt='app-icon' id='input-icon'/>,
+    'wtrcoolr': <img src={wtrcoolrSquare} alt='app-icon' id='input-icon'/>,
+    'DrivingDoge': <img src={drivingDogeSquare} alt='app-icon' id='input-icon'/>,
   }
 
 
@@ -114,13 +136,13 @@ const SpotlightSearch = () => {
     const transitions = useTransition(state.icon, {
       from: { opacity: 0, transform: "translate3d(25%, 0px, 0px)" },
       enter: { opacity: 1, transform: "translate3d(0%, 0px, 0px)" },
-      leave: { opacity: 0, height: 0, transform: "translate3d(-25%, 0px, 0px)" },
+      leave: { opacity: 0, transform: "translate3d(25%, 0px, 0px)" },
       trail: 1000,
       config: config.gentle,
     });
     return transitions((styles, item) => {
       return (
-        <animated.div style={{...styles, width: '3rem'}}>
+        <animated.div style={{...styles }}>
           {icons[item]}
         </animated.div>
       )
