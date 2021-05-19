@@ -42,7 +42,7 @@
 }
 
 .section-list-item:hover {
-  background-color: var(--blue-ryb);
+  background-color: var(--blue-ryb-lt);
   cursor: pointer;
 }
 
