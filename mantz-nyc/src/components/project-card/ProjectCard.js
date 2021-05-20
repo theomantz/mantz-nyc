@@ -7,6 +7,7 @@ import drivingDogeSquare from '../../assets/drivingDogeSquare.png'
 import {ReactComponent as WtrcoolrRect} from '../../assets/wtrcoolr.svg'
 import { ReactComponent as MoobooRect } from "../../assets/moobooRect.svg";
 import {ReactComponent as DrivingDogeRect} from '../../assets/drivingDogeRect.svg'
+import "./ProjectCard.css";
 import {
   PROJECT_REMS
 } from '../../reducers/uiReducer'
@@ -27,11 +28,11 @@ const ProjectCard = ({ active }) => {
           "Ruby-on-Rails, React, Redux, JavaScript, HTML5, CSS3, PostgreSQL",
         tagline:
           "A full featured, aquamarine themed, clone of the Pinterest web app",
-        additional:
-          "Featuring a masonry style layout grid implemented using pure CSS. A pin and board creation feature allowing users to create pins and boards, save pins that they like to their boards, and delete pins that they have created. A follows feature which allows users to follow one another.",
+        additional:[
+          "Feature List", "Masonry style layout grid implemented using pure CSS.", "Pin and board creation feature allowing users to create pins and boards, save pins that they like to their boards, and delete pins that they have created.", "A follows feature which allows users to follow one another.",]
       },
       links: {
-        live: "https://www.google.com",
+        live: "http://mooboo.io",
         github: "https://github.com/theomantz/mooboo",
       },
       images: {

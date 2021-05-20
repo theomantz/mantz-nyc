@@ -1,9 +1,10 @@
-import './ProjectCard.css'
+
 import React, { useContext } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { Context } from "../../store/store";
 import { ACTIVE_CARD, ACTIVE_ICON } from '../../reducers/uiReducer';
-import { ReactTinyLink } from 'react-tiny-link'
+import { ReactComponent as ExternalLink } from '../../assets/externalLink.svg'
+import { ReactComponent as GithubIcon } from '../../assets/githubIcon.svg'
 
 const ProjectListItem = ({ active, collapsed, projectObject }) => {
   
@@ -58,25 +59,36 @@ const ProjectListItem = ({ active, collapsed, projectObject }) => {
   } else {
     
     return (
-      <div className='project-list-item'
-      >
-        <div className='project-card-img-container' style={{height: 'auto', width: '80%'}}>
+      <div className="project-list-item">
+        <div
+          className="project-card-img-container"
+          style={{ height: "auto", width: "80%" }}
+        >
           {images.rect}
         </div>
-        <div className='project-list-item-text'>
-          <ul className='project-list-item-description'>
-            {renderProps}
-          </ul>
+        <div className="project-list-item-text">
+          <ul className="project-list-item-description">{renderProps}</ul>
         </div>
-        <div className='project-list-link-container'>
-          <ReactTinyLink 
-            cardSize="small"
-            showGraphic={true}
-            url={links.live}
-          />
+        <div className="project-list-link-container">
+          <div className="live-link-container tooltip">
+            <ExternalLink
+              id="external-link-icon"
+              className="socials-link-icon"
+              onClick={() => window.open(links.live, "_blank")}
+            />
+            <span className="tooltip-text">Live</span>
+          </div>
+          <div className="github-link-container tooltip">
+            <GithubIcon
+              id="github-link-icon"
+              className="socials-link-icon"
+              onClick={() => window.open(links.github, "_blank")}
+            />
+            <span className="tooltip-text">Github</span>
+          </div>
         </div>
       </div>
-    )
+    );
   }
   
 }
