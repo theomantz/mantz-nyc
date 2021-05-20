@@ -1,6 +1,10 @@
 import './SkillCard.css'
+
 import React, { useContext } from 'react'
 import { Context } from "../../store/store";
+
+import { v4 as uuidv4 } from 'uuid'
+
 import {
   ReactComponent as SkillsIcon
 } from '../../assets/skillsIcon.svg'
@@ -24,7 +28,7 @@ const SkillsCard = ({active}) => {
   } else {
     const skillCardItems = skills.map(s => {
       return (
-        <div className='skill-section-item'>
+        <div className='skill-section-item' key={uuidv4()}>
           <div className='skill-icon-container'>
             {s.icon}
           </div>

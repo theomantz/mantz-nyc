@@ -1,19 +1,24 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Context } from "../../store/store";
 import './SearchList.css'
+
+import React, { useContext, useEffect } from 'react'
+import { Context } from "../../store/store";
+
 import { v4 as uuidv4 } from 'uuid'
+import { useSpring, animated, config } from "react-spring";
+
 import AboutCard from '../about-card/AboutCard'
+import SkillsCard from '../skills-card/SkillsCard'
 import ProjectCard from '../project-card/ProjectCard'
 import ContactCard from '../contact-card/ContactCard'
-import SkillsCard from '../skills-card/SkillsCard'
-import { useSpring, animated, config } from "react-spring";
+import ExperienceCard from '../experience-card/ExperienceCard';
+import EducationCard from '../education-card/EducationCard';
+
 import {
   EXPANDED,
   ACTIVE_CARD,
   ACTIVE_ICON,
   SPOTLIGHT_REMS
 } from '../../reducers/uiReducer'
-import ExperienceCard from '../experience-card/ExperienceCard';
 
 const SearchList = ({ active }) => {
 
@@ -60,9 +65,13 @@ const SearchList = ({ active }) => {
     Experience: [
       <div onClick={handleClick("Experience")}>
         <ExperienceCard />
-      </div>
+      </div>,
     ],
-    Education: ["Education"],
+    Education: [
+      <div onClick={handleClick("Education")}>
+        <EducationCard />
+      </div>,
+    ],
     Contact: [
       <div onClick={handleClick("Contact")}>
         <ContactCard />
@@ -78,7 +87,7 @@ const SearchList = ({ active }) => {
       v.forEach((e) => remCount += 2);
     });
 
-    dispatch({type: SPOTLIGHT_REMS, payload: remCount})
+    dispatch({type: SPOTLIGHT_REMS, payload: remCount + 1})
     
   }
 
@@ -119,6 +128,12 @@ const SearchList = ({ active }) => {
       contentCard = (
         <ExperienceCard 
           active={card === 'Experience'}
+        />
+      )
+    } else if (card === 'Education') {
+      contentCard = (
+        <EducationCard 
+          active={card === 'Education'}
         />
       )
     }

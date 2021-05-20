@@ -1,33 +1,30 @@
-import './ExperienceCard.css'
+import './EducationCard.css'
 
-import experience from './experience'
+import education from './education'
 
 import { v4 as uuidv4 } from 'uuid'
 
-import {
-  ReactComponent as ExperienceIcon
-} from '../../assets/experienceIcon.svg'
+const EducationCard = ({active}) => {
 
-const ExperienceCard = ({active}) => {
 
-  if (!active) {
+  if(!active) {
     return (
       <div className="section-list-card-container">
         <div className="section-list-card-icon-container">
-          <ExperienceIcon className="section-list-icon" />
+          
         </div>
-        <span className="section-list-text">Experience</span>
+        <span className="section-list-text">Education</span>
       </div>
     );
   } else {
 
-    const experienceObject = experience.map(e => {
+    const educationObject = education.map((e) => {
       return (
         <div className="experience-container">
-          <fieldset className='experience-fieldset'>
-            <legend className="experience-title">{e.title}</legend>
+          <fieldset className="experience-fieldset">
+            <legend className="experience-title">{e.institution}</legend>
             <div className="experience-subtitle">
-              <span className="company">{e.company}</span>
+              <span className="company">{e.degree}</span>
               <span className="duration">
                 {e.duration.start} - {e.duration.end}
               </span>
@@ -44,15 +41,15 @@ const ExperienceCard = ({active}) => {
           </fieldset>
         </div>
       );
-    })
-    
+    });
+
     return (
       <div className='content-card-visible'>
-        {experienceObject}
+        {educationObject}
       </div>
     )
   }
   
 }
 
-export default ExperienceCard
+export default EducationCard

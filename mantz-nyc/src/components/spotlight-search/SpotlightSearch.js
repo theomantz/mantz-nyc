@@ -137,6 +137,7 @@ const SpotlightSearch = () => {
     'Projects': <ProjectIcon id='input-icon'/>,
     'Skills': <SkillsIcon id='input-icon'/>,
     'Experience': <ExperienceIcon id='input-icon'/>,
+    'Education': <ExperienceIcon id='input-icon'/>,
     'mooboo': <img src={moobooSquare} alt='app-icon' id='input-icon'/>,
     'wtrcoolr': <img src={wtrcoolrSquare} alt='app-icon' id='input-icon'/>,
     'DrivingDoge': <img src={drivingDogeSquare} alt='app-icon' id='input-icon'/>,
