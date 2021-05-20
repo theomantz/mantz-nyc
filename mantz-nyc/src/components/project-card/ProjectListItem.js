@@ -1,12 +1,13 @@
 import './ProjectCard.css'
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { Context } from "../../store/store";
 import { ACTIVE_CARD, ACTIVE_ICON } from '../../reducers/uiReducer';
+import { ReactTinyLink } from 'react-tiny-link'
 
 const ProjectListItem = ({ active, collapsed, projectObject }) => {
   
-  const { images, title, props } = projectObject
+  const { images, title, props, links } = projectObject
   const [state, dispatch] = useContext(Context)
 
   if( collapsed ) return null
@@ -66,6 +67,13 @@ const ProjectListItem = ({ active, collapsed, projectObject }) => {
           <ul className='project-list-item-description'>
             {renderProps}
           </ul>
+        </div>
+        <div className='project-list-link-container'>
+          <ReactTinyLink 
+            cardSize="small"
+            showGraphic={true}
+            url={links.live}
+          />
         </div>
       </div>
     )

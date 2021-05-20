@@ -23,12 +23,16 @@ const ProjectCard = ({ active }) => {
     {
       title: "mooboo",
       props: {
-        Stack: "Ruby-on-Rails, React, Redux, JavaScript, HTML5, CSS3, PostgreSQL",
-        tagline: 'A full featured, aquamarine themed, clone of the Pinterest web app',
-        additional: 'Featuring a masonry style layout grid implemented using pure CSS. A pin and board creation feature allowing users to create pins and boards, save pins that they like to their boards, and delete pins that they have created. A follows feature which allows users to follow one another.'
+        Stack:
+          "Ruby-on-Rails, React, Redux, JavaScript, HTML5, CSS3, PostgreSQL",
+        tagline:
+          "A full featured, aquamarine themed, clone of the Pinterest web app",
+        additional:
+          "Featuring a masonry style layout grid implemented using pure CSS. A pin and board creation feature allowing users to create pins and boards, save pins that they like to their boards, and delete pins that they have created. A follows feature which allows users to follow one another.",
       },
       links: {
-        live: 
+        live: "https://www.google.com",
+        github: "https://github.com/theomantz/mooboo",
       },
       images: {
         square: moobooSquare,
@@ -39,7 +43,8 @@ const ProjectCard = ({ active }) => {
       title: "wtrcoolr",
       props: {
         Stack: "MongoDB, Express JS, React, Node JS",
-        tagline: 'wtrcoolr is a video chat app which pairs users randomly based ',
+        tagline:
+          "wtrcoolr is a video chat app which pairs users randomly based ",
         Type: "Social Media",
         Notes: ["wtrcoolr is a video chat app"],
       },
@@ -51,7 +56,7 @@ const ProjectCard = ({ active }) => {
     {
       title: "DrivingDoge",
       props: {
-        tagline: '',
+        tagline: "",
         Stack: "Node.JS / Vanilla JavaScript",
         Type: "Social Media Sentiment Analysis",
         Notes: ["DrivingDoge is a social media sentiment analysis app"],
