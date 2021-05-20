@@ -32,7 +32,7 @@ const ContactCard = ({ active }) => {
         <div className="section-list-card-icon-container">
           <ContactIcon className="section-list-icon" />
         </div>
-        <span className="section-list-text">Theo Mantz</span>
+        <span className="section-list-text">Contact</span>
       </div>
     );
   } else {

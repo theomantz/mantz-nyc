@@ -19,7 +19,11 @@ import { ReactComponent as AddressIcon } from "../../assets/addressIcon.svg";
 
 import { ReactComponent as ProjectIcon } from "../../assets/projectIcon.svg";
 
-import { ReactComponent as HamburgerIcon } from "../../assets/hamburgerIcon.svg"
+import { ReactComponent as ExperienceIcon } from '../../assets/experienceIcon.svg'
+
+import { ReactComponent as BackArrowIcon } from "../../assets/backArrowIcon.svg"
+
+import { ReactComponent as SkillsIcon } from "../../assets/skillsIcon.svg"
 
 import moobooSquare from '../../assets/MoobooSquare.png'
 import wtrcoolrSquare from '../../assets/wtrcoolrSquare.png'
@@ -114,7 +118,7 @@ const SpotlightSearch = () => {
     return transitions((styles, item) =>
       item ? (
         <animated.div style={{ ...styles, ...baseDivStyles }}>
-          <HamburgerIcon
+          <BackArrowIcon
             id="hamburgerIcon"
             onClick={(e) => handleSearchClick()}
           />
@@ -131,6 +135,8 @@ const SpotlightSearch = () => {
     'About': <AddressIcon id='input-icon'/>,
     'Contact': <ContactIcon id='input-icon'/>,
     'Projects': <ProjectIcon id='input-icon'/>,
+    'Skills': <SkillsIcon id='input-icon'/>,
+    'Experience': <ExperienceIcon id='input-icon'/>,
     'mooboo': <img src={moobooSquare} alt='app-icon' id='input-icon'/>,
     'wtrcoolr': <img src={wtrcoolrSquare} alt='app-icon' id='input-icon'/>,
     'DrivingDoge': <img src={drivingDogeSquare} alt='app-icon' id='input-icon'/>,

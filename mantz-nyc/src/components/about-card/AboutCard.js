@@ -23,7 +23,7 @@ const AboutPage = ({active}) => {
         <div className="section-list-card-icon-container">
           <AddressIcon className="section-list-icon" />
         </div>
-        <span className="section-list-text">Theo Mantz</span>
+        <span className="section-list-text">About</span>
       </div>
     );
   } else {
@@ -37,10 +37,7 @@ const AboutPage = ({active}) => {
               I am a passionate full stack developer and engineer who is equal parts aethetically and technically minded
             </p>
             <p className='about-card-text'>
-              With an extensive background in Project Management and Engineering Design
-            </p>
-            <p className='about-card-text'>
-              Having navigated complex building systems my entire career, I am ready to chart courses through large and complex codebases
+              With an extensive background in Project Management and Engineering Design, I am an individual who is passionate about merging all aspects of sound design into a beautfully crafted product from the front to the back end
             </p>
           </ul>
           <div className="contact-card-info">

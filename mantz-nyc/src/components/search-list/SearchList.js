@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid'
 import AboutCard from '../about-card/AboutCard'
 import ProjectCard from '../project-card/ProjectCard'
 import ContactCard from '../contact-card/ContactCard'
+import SkillsCard from '../skills-card/SkillsCard'
 import { useSpring, animated, config } from "react-spring";
 import {
   EXPANDED,
@@ -12,6 +13,7 @@ import {
   ACTIVE_ICON,
   SPOTLIGHT_REMS
 } from '../../reducers/uiReducer'
+import ExperienceCard from '../experience-card/ExperienceCard';
 
 const SearchList = ({ active }) => {
 
@@ -51,9 +53,15 @@ const SearchList = ({ active }) => {
       <div onClick={handleClick("Projects")}>
         <ProjectCard />
       </div>,
-      "Skills",
+      <div onClick={handleClick("Skills")}>
+        <SkillsCard />
+      </div>,
     ],
-    Experience: ["Experience placeholder"],
+    Experience: [
+      <div onClick={handleClick("Experience")}>
+        <ExperienceCard />
+      </div>
+    ],
     Education: ["Education"],
     Contact: [
       <div onClick={handleClick("Contact")}>
@@ -101,6 +109,18 @@ const SearchList = ({ active }) => {
           active={card === "Projects" || card === "Project Details"}
         />
       );
+    } else if (card === 'Skills') {
+      contentCard = (
+        <SkillsCard 
+          active={card === 'Skills'}
+        />
+      )
+    } else if (card === 'Experience') {
+      contentCard = (
+        <ExperienceCard 
+          active={card === 'Experience'}
+        />
+      )
     }
     return (
       <animated.div style={contentSpring}>

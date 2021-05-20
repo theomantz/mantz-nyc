@@ -13,7 +13,7 @@ const ProjectListItem = ({ active, collapsed, projectObject }) => {
 
   if( collapsed ) return null
 
-  const imageWidth = `${(window.innerHeight * 0.15)}px`
+  const imageHeight = `${(window.innerHeight * 0.3)}px`
   
   const renderProps = Object.entries(props).map(([key, value]) => {
     
@@ -68,6 +68,11 @@ const ProjectListItem = ({ active, collapsed, projectObject }) => {
         </div>
         <div className="project-list-item-text">
           <ul className="project-list-item-description">{renderProps}</ul>
+        </div>
+        <div className='feature-image-container'>
+          <video width='auto' height={imageHeight} className='feature-video' autoPlay muted loop>
+            <source src={images.featureImage} type='video/mp4'/>
+          </video>
         </div>
         <div className="project-list-link-container">
           <div className="live-link-container tooltip">

@@ -4,6 +4,9 @@ import ProjectListItem from './ProjectListItem'
 import moobooSquare from '../../assets/MoobooSquare.png'
 import wtrcoolrSquare from '../../assets/wtrcoolrSquare.png'
 import drivingDogeSquare from '../../assets/drivingDogeSquare.png'
+import moobooFeatureVideo from '../../assets/moobooFeatureVideo.mov'
+import wtrcoolrFeature from '../../assets/wtrcoolrFeature.mov'
+import drivingDogeFeature from '../../assets/drivingDogeFeature.mov'
 import {ReactComponent as WtrcoolrRect} from '../../assets/wtrcoolr.svg'
 import { ReactComponent as MoobooRect } from "../../assets/moobooRect.svg";
 import {ReactComponent as DrivingDogeRect} from '../../assets/drivingDogeRect.svg'
@@ -28,8 +31,6 @@ const ProjectCard = ({ active }) => {
           "Ruby-on-Rails, React, Redux, JavaScript, HTML5, CSS3, PostgreSQL",
         tagline:
           "A full featured, aquamarine themed, clone of the Pinterest web app",
-        additional:[
-          "Feature List", "Masonry style layout grid implemented using pure CSS.", "Pin and board creation feature allowing users to create pins and boards, save pins that they like to their boards, and delete pins that they have created.", "A follows feature which allows users to follow one another.",]
       },
       links: {
         live: "http://mooboo.io",
@@ -38,6 +39,7 @@ const ProjectCard = ({ active }) => {
       images: {
         square: moobooSquare,
         rect: <MoobooRect style={{ width: "100%", height: "auto" }} />,
+        featureImage: moobooFeatureVideo,
       },
     },
     {
@@ -45,26 +47,33 @@ const ProjectCard = ({ active }) => {
       props: {
         Stack: "MongoDB, Express JS, React, Node JS",
         tagline:
-          "wtrcoolr is a video chat app which pairs users randomly based ",
-        Type: "Social Media",
-        Notes: ["wtrcoolr is a video chat app"],
+          "wtrcoolr is a Jazz Cup themed video chat app which pairs users randomly based on mutual membership in participating organizations",
+      },
+      links: {
+        live: "https://wtrcoolr.herokuapp.com/#/",
+        github: "https://github.com/theomantz/wtrcoolr",
       },
       images: {
         square: wtrcoolrSquare,
         rect: <WtrcoolrRect style={{ width: "100%", height: "auto" }} />,
+        featureImage: wtrcoolrFeature,
       },
     },
     {
       title: "DrivingDoge",
       props: {
-        tagline: "",
-        Stack: "Node.JS / Vanilla JavaScript",
-        Type: "Social Media Sentiment Analysis",
-        Notes: ["DrivingDoge is a social media sentiment analysis app"],
+        Stack: "Node.JS, Vanilla JavaScript, D3 JS, TensorFlow JS",
+        tagline:
+          "DrivingDoge is a social media sentiment analysis app which scrapes Reddit for user sentiment around a list of assets and then visualizes the data using D3 JS",
+      },
+      links: {
+        live: "http://drivingdoge.herokuapp.com/",
+        github: "https://github.com/theomantz/drivingdoge",
       },
       images: {
         square: drivingDogeSquare,
         rect: <DrivingDogeRect style={{ width: "100%", height: "auto" }} />,
+        featureImage: drivingDogeFeature,
       },
     },
   ];
