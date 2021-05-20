@@ -1,5 +1,7 @@
 
 export const DIMS = 'DIMS';
+export const SPOTLIGHT_REMS = 'SPOTLIGHT_REMS';
+export const PROJECT_REMS = 'PROJECT_REMS';
 export const EXPANDED = 'EXPANDED';
 export const CONDENSED = 'CONDENSED';
 export const ACTIVE_ICON = 'ACTIVE_ICON'
@@ -22,6 +24,16 @@ const uiReducer = ( state, action ) => {
       return {
         ...state,
         dims: action.payload
+      };
+    case SPOTLIGHT_REMS:
+      return {
+        ...state,
+        spotlightRems: action.payload
+      };
+    case PROJECT_REMS:
+      return {
+        ...state,
+        projectRems: action.payload
       };
     case ACTIVE_CARD:
       return {

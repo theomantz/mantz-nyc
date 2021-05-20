@@ -32,21 +32,26 @@ const SpotlightSearch = () => {
   const [active, setActive] = useState(false);
   const [search, setSearch] = useState("");
 
-  let scale;
+  let rem;
   let width = window.innerWidth
   if(width > 900) {
-    scale = 1
+    rem = 16
   } else if (width > 600) {
-    scale = (15/16)
+    rem = 13
   } else if (width > 400) {
-    scale = (14/16)
+    rem = 11
   } else {
-    scale = (13/16)
+    rem = 8
   }
   
-  const vhToPixel = (value) => `${(window.innerHeight * value * scale) / 100}px`;
+  const vhToPixel = (value) => `${(window.innerHeight * value)/ 100}px`;
   const vwToPixel = (value) => `${(window.innerWidth * value) / 100}px`;
 
+  const vhToPixelNumeric = (value) => ((window.innerHeight * value)/ 100);
+
+  const spotlightHeight = `${state.spotlightRems * rem + vhToPixelNumeric(5)}px` 
+  const projectsHeight = `${state.projectRems * rem + vhToPixelNumeric(5)}px`
+  
   let springConfig;
   if (!active && !state.ui) {
     springConfig = {
@@ -67,7 +72,7 @@ const SpotlightSearch = () => {
         width: vwToPixel(65),
       },
       to: {
-        height: vhToPixel(22),
+        height: state.card === 'Projects' ? projectsHeight : spotlightHeight,
         width: vwToPixel(65),
       },
     };

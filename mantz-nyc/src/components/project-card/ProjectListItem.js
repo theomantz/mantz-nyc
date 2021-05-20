@@ -11,24 +11,23 @@ const ProjectListItem = ({ active, collapsed, projectObject }) => {
 
   if( collapsed ) return null
 
-  const imageHeight = ( (( state.dims.x * 0.5 ) - ( state.dims.y * 0.05 )) / 3 )
+  const imageWidth = `${(window.innerHeight * 0.15)}px`
   
   const renderProps = Object.entries(props).map(([key, value]) => {
     
     let description
     if(typeof value === Array ) {
-      let listValues = value.map(v => <li className='prop-value'>{v}</li>)
-      description = <ul className='desc-list'>{listValues}</ul>
+      let listValues = value.map(v => <li className={`prop-value ${key}`}>{v}</li>)
+      description = listValues
     } else {
-      description = <span className="prop-value">{value}</span>;
+      description = <span className={`prop-value ${key}`}>{value}</span>;
     }
     
     return (
-      <li key={uuidv4()} className='project-list-props'>
-        <h3 className='prop-title'>{key}:</h3>
+      <li key={uuidv4()} className={`project-list-props ${key}`}>
         {description}
       </li>
-    )
+    );
   })
   
   const handleClick = (type) => {
@@ -46,10 +45,10 @@ const ProjectListItem = ({ active, collapsed, projectObject }) => {
         <li key={uuidv4()} className='section-list-item project-item'>
           <div onClick={handleClick('Project Details')}>
             <div className="section-list-card-container">
-              <div className="section-list-card-icon-container">
-                <img src={images.square} alt='project-icon' className="section-list-icon" />
+              <div className="section-list-card-icon-container project-item">
+                <img src={images.square} alt='project-icon' className="section-list-icon project-item" />
               </div>
-              <span className="section-list-text">{title}</span>
+              <span className="section-list-text project-item">{title}</span>
             </div>
           </div>
         </li>
@@ -60,24 +59,13 @@ const ProjectListItem = ({ active, collapsed, projectObject }) => {
     return (
       <div className='project-list-item'
       >
-        <div className='project-card-img-container'>
-          <img 
-            src={images.square} 
-            className='project-card-list-img' 
-            alt='project-card-icon'
-            style={{
-              height: ( imageHeight ),
-              width: 'auto'
-            }}           
-          />
+        <div className='project-card-img-container' style={{height: 'auto', width: '80%'}}>
+          {images.rect}
         </div>
         <div className='project-list-item-text'>
-          <h1 className='project-list-item-title'>
-            {title}
-          </h1>
-          <div className='project-list-item-description'>
+          <ul className='project-list-item-description'>
             {renderProps}
-          </div>
+          </ul>
         </div>
       </div>
     )

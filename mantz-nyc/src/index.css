@@ -7,10 +7,11 @@
   --umber: #554640ff;
   --light-gray: #ced0ceff;
   --raisin-black: #2e2c2fff;
+  --root-rem: 16px;
 }
 
 html {
-  font-size: 16px;
+  font-size: var(--root-rem);
   color: var(--light-gray);
 }
 

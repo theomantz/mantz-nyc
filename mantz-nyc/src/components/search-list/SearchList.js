@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Context } from "../../store/store";
 import './SearchList.css'
 import { v4 as uuidv4 } from 'uuid'
@@ -10,6 +10,7 @@ import {
   EXPANDED,
   ACTIVE_CARD,
   ACTIVE_ICON,
+  SPOTLIGHT_REMS
 } from '../../reducers/uiReducer'
 
 const SearchList = ({ active }) => {
@@ -31,6 +32,53 @@ const SearchList = ({ active }) => {
       width: state.card === 'Projects' ? vwToPixel(65) : vwToPixel(85)
     },
   });
+
+  const handleClick = (type) => {
+    return (e) => {
+      dispatch({ type: ACTIVE_CARD, payload: type });
+      dispatch({ type: EXPANDED, payload: true });
+      dispatch({ type: ACTIVE_ICON, payload: type });
+    };
+  };
+
+  const sectionHeaders = {
+    About: [
+      <div onClick={handleClick("About")}>
+        <AboutCard />
+      </div>,
+    ],
+    Work: [
+      <div onClick={handleClick("Projects")}>
+        <ProjectCard />
+      </div>,
+      "Skills",
+    ],
+    Experience: ["Experience placeholder"],
+    Education: ["Education"],
+    Contact: [
+      <div onClick={handleClick("Contact")}>
+        <ContactCard />
+      </div>,
+    ],
+  };
+  
+  const remCalc = () => {
+
+    let remCount = 0;
+    Object.entries(sectionHeaders).forEach(([_, v]) => {
+      remCount += 1;
+      v.forEach((e) => remCount += 2);
+    });
+
+    dispatch({type: SPOTLIGHT_REMS, payload: remCount})
+    
+  }
+
+  useEffect(() => {
+    if(!state.spotlightRems) {
+      remCalc()
+    }
+  })
   
   if(!active) return null
 
@@ -60,46 +108,7 @@ const SearchList = ({ active }) => {
       </animated.div>
     )
   };
-
-  const handleClick = (type) => {
-    return (
-      e => {
-        dispatch({type: ACTIVE_CARD, payload: type})
-        dispatch({type: EXPANDED, payload: true })
-        dispatch({type: ACTIVE_ICON, payload: type})
-      }
-    )
-  }
-
-
-  
-  const sectionHeaders = {
-    About: [
-      <div onClick={handleClick("About")}>
-        <AboutCard />
-      </div>,
-    ],
-    Work: [
-      <div onClick={handleClick("Projects")}>
-        <ProjectCard />
-      </div>,
-      "Skills",
-    ],
-    Experience: ["Experience placeholder"],
-    Education: ["Education"],
-    Contact: [
-      <div onClick={handleClick("Contact")}>
-        <ContactCard />
-      </div>,
-    ],
-  };
-
   // add on click attribute to all list items which render the respective card
-
-
-
-
-
   const searchList = []
   
   Object.entries(sectionHeaders).forEach(([key, value]) => {
@@ -127,7 +136,7 @@ const SearchList = ({ active }) => {
       </ul>
     )
   })
-
+  
   if(state.ui) {
     contentAreaStyle = {
       flexDirection: 'column',
