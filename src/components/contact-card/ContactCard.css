@@ -1,0 +1,162 @@
+.contact-card-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: 5%;
+}
+
+@media (max-width: 900px) {
+  .contact-card-image { 
+    width: 200px; 
+    height: 200px;
+  }
+}
+
+
+
+@media (max-width: 600px) {
+  .contact-card-image { 
+    width: 100px; 
+    height: 100px;
+  }
+}
+
+.contact-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80%;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.name-location-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-card-name {
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.contact-card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.socials-list {
+  display: flex;
+  direction: row;
+
+}
+
+.basic-contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.contact-info-item {
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.contact-info-item a {
+  text-decoration: none;
+  color: var(--light-gray);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#email-icon, #call-icon, #location-icon {
+  width: 1.5rem;
+  height: auto;
+  margin-right: 1.5rem;
+}
+
+.contact-info-item:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  background-color: var(--blue-ryb);
+}
+
+.contact-card-text {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+
+.contact-subtext {
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.socials-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 2rem 1rem;
+  width: 80%;
+}
+
+.socials-link-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  padding: 1rem;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 0.6rem;
+  transition: all 0.5s;
+}
+
+.socials-link-container:hover {
+  background-color: var(--umber);
+}
+
+.socials-link-icon {
+  cursor: pointer;
+  box-sizing: border-box;
+  width: auto;
+  height: 4rem;
+  transition: all 0.5s;
+  margin: 0 auto;
+}
+
+.socials-link-icon:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+  .socials-link-container { 
+    margin: 1rem; 
+  }
+}
+
+@media (max-width: 600px) {
+  .socials-link-container { 
+    margin: 0.5rem;
+  }
+  .socials-list {
+    margin: 0.5rem;
+  }
+}

@@ -1,0 +1,50 @@
+.content-card-visible.experience {
+  padding: 1rem;
+}
+
+.experience-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.25rem;
+  width: 90%;
+}
+
+.experience-fieldset {
+  border: 1px solid var(--light-gray);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.experience-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-left: 1.2rem;
+}
+
+.experience-subtitle {
+  display: flex;
+  direction: row;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  margin-left: 1.2rem;
+  font-size: 1rem;
+}
+
+.company {
+  font-weight: 700;
+}
+
+.duration {
+  font-style: italic;
+}
+
+.experience-list {
+  font-size: 1rem;
+  line-height: 1.2rem;
+  padding: 0 0 0 1rem;
+}
+
+.bullet {
+  list-style: circle;
+  margin: 0.5rem;
+}

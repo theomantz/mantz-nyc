@@ -1,0 +1,118 @@
+.project-page-container {
+  width: 100%;
+  z-index: 2;
+  margin: 0 auto;
+  padding: 0 0 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.project-list-item {
+  border-top: 1px solid rgba(249, 253, 253, 0.377);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 2rem 1rem;
+}
+
+.project-card-img-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-list-item-text {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  height: 30%;
+  justify-content: space-evenly;
+}
+
+.project-list-item-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: initial;
+  height: 100%;
+}
+
+.project-list-props {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem 0;
+  font-size: 1rem;
+  line-height: 2.5rem;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.project-list-props.Stack {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  font-weight: 700;
+}
+
+.prop-title {
+  margin-right: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.prop-value.tagline {
+  text-align: center;
+}
+
+.project-list-link-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 30%;
+  width: 60%;
+  justify-content: space-evenly;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 80px;
+  background-color: var(--light-gray);
+  color: var(--raisin-black);
+  font-size: 1rem;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 0.5rem;
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  margin-left: -40px;
+  z-index: 1;
+}
+
+.feature-image-container {
+  height: 40%;
+  width: auto;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+}
+
+.feature-video {
+  border-radius: 1rem;
+}
