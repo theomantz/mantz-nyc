@@ -23,7 +23,7 @@ const ExperienceCard = ({active}) => {
 
     const experienceObject = experience.map(e => {
       return (
-        <div className="experience-container">
+        <div className="experience-container" key={uuidv4()}>
           <fieldset className='experience-fieldset'>
             <legend className="experience-title">{e.title}</legend>
             <div className="experience-subtitle">
@@ -47,7 +47,7 @@ const ExperienceCard = ({active}) => {
     })
     
     return (
-      <div className='content-card-visible'>
+      <div className='content-card-visible experience'>
         {experienceObject}
       </div>
     )

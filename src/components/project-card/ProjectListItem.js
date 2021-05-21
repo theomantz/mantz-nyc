@@ -13,7 +13,7 @@ const ProjectListItem = ({ active, collapsed, projectObject }) => {
 
   if( collapsed ) return null
 
-  const imageHeight = `${(window.innerHeight * 0.3)}px`
+  const imageHeight = `${(window.innerHeight * 0.25)}px`
   
   const renderProps = Object.entries(props).map(([key, value]) => {
     

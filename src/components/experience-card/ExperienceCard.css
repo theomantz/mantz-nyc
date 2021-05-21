@@ -1,20 +1,24 @@
+.content-card-visible.experience {
+  padding: 1rem;
+}
+
 .experience-container {
   display: flex;
   flex-direction: column;
   font-size: 1.25rem;
-  width: 75%;
+  width: 90%;
 }
 
 .experience-fieldset {
   border: 1px solid var(--light-gray);
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 0.5rem;
 }
 
 .experience-title {
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   font-weight: 700;
-
+  margin-left: 1.2rem;
 }
 
 .experience-subtitle {
@@ -22,6 +26,8 @@
   direction: row;
   justify-content: space-between;
   margin-bottom: 0.5rem;
+  margin-left: 1.2rem;
+  font-size: 1rem;
 }
 
 .company {

@@ -1,6 +1,9 @@
 import './App.css';
 import React, { useState, useEffect } from "react";
-import keys  from './config/keys'
+import {
+  portrait,
+  landscape
+} from './assets/backgroundPhotos/photos'
 import axios from 'axios'
 import Store from './store/store'
 import SpotlightSearch from './components/spotlight-search/SpotlightSearch'
@@ -22,26 +25,12 @@ const App = () => {
     
   }, [])
 
+  let orientation = imageSize === 'landscape' ? landscape : portrait
 
-  const fetchUrl = async () => {
-    const res = await axios
-      .get("https://api.unsplash.com/photos/random/", {
-        headers: {
-          Authorization: `Client-ID ${keys().unsplashAccessKey}`,
-        },
-        params: {
-          content_filter: "high",
-          orientation: imageSize,
-          topics: "wallpapers",
-        },
-      })
-      
-    if (res.status === 200) {
-      setImageURL(res.data.urls.full)
-      return res.data.urls.full
-    } else {
-      console.log(res)
-    }
+  const fetchUrl = () => {
+    let length = orientation.length
+    let index = Math.floor( length * Math.random() )
+    setImageURL(orientation[index].urls.regular)
   }
 
   if( imageURL ) {

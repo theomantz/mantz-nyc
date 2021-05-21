@@ -21,6 +21,8 @@ import { ReactComponent as ProjectIcon } from "../../assets/projectIcon.svg";
 
 import { ReactComponent as ExperienceIcon } from '../../assets/experienceIcon.svg'
 
+import { ReactComponent as EducationIcon } from '../../assets/educationIcon.svg'
+
 import { ReactComponent as BackArrowIcon } from "../../assets/backArrowIcon.svg"
 
 import { ReactComponent as SkillsIcon } from "../../assets/skillsIcon.svg"
@@ -137,7 +139,7 @@ const SpotlightSearch = () => {
     'Projects': <ProjectIcon id='input-icon'/>,
     'Skills': <SkillsIcon id='input-icon'/>,
     'Experience': <ExperienceIcon id='input-icon'/>,
-    'Education': <ExperienceIcon id='input-icon'/>,
+    'Education': <EducationIcon id='input-icon'/>,
     'mooboo': <img src={moobooSquare} alt='app-icon' id='input-icon'/>,
     'wtrcoolr': <img src={wtrcoolrSquare} alt='app-icon' id='input-icon'/>,
     'DrivingDoge': <img src={drivingDogeSquare} alt='app-icon' id='input-icon'/>,

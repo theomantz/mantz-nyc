@@ -2,6 +2,10 @@ import './EducationCard.css'
 
 import education from './education'
 
+import { 
+  ReactComponent as EducationIcon 
+} from '../../assets/educationIcon.svg'
+
 import { v4 as uuidv4 } from 'uuid'
 
 const EducationCard = ({active}) => {
@@ -11,7 +15,7 @@ const EducationCard = ({active}) => {
     return (
       <div className="section-list-card-container">
         <div className="section-list-card-icon-container">
-          
+          <EducationIcon className="section-list-icon" />
         </div>
         <span className="section-list-text">Education</span>
       </div>
