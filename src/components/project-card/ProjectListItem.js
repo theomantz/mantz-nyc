@@ -62,7 +62,7 @@ const ProjectListItem = ({ active, collapsed, projectObject }) => {
       <div className="project-list-item">
         <div
           className="project-card-img-container"
-          style={{ height: "auto", width: "80%" }}
+          style={{ height: "auto", maxHeight: '20%', width: "80%" }}
         >
           {images.rect}
         </div>
