@@ -62,16 +62,26 @@ const ProjectListItem = ({ active, collapsed, projectObject }) => {
       <div className="project-list-item">
         <div
           className="project-card-img-container"
-          style={{ height: "auto", maxHeight: '20%', width: "80%" }}
         >
-          {images.rect}
+          <img
+            src={images.rect}
+            alt="project-logo"
+            style={{ height: "auto", width: "60%" }}
+          />
         </div>
         <div className="project-list-item-text">
           <ul className="project-list-item-description">{renderProps}</ul>
         </div>
-        <div className='feature-image-container'>
-          <video width='auto' height={imageHeight} className='feature-video' autoPlay muted loop>
-            <source src={images.featureImage} type='video/mp4'/>
+        <div className="feature-image-container">
+          <video
+            width="auto"
+            height={imageHeight}
+            className="feature-video"
+            autoPlay
+            muted
+            loop
+          >
+            <source src={images.featureImage} type="video/mp4" />
           </video>
         </div>
         <div className="project-list-link-container">

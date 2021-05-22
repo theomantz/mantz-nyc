@@ -7,9 +7,9 @@ import drivingDogeSquare from '../../assets/drivingDogeSquare.png'
 import moobooFeatureVideo from '../../assets/moobooFeatureVideo.mov'
 import wtrcoolrFeature from '../../assets/wtrcoolrFeature.mov'
 import drivingDogeFeature from '../../assets/drivingDogeFeature.mov'
-import {ReactComponent as WtrcoolrRect} from '../../assets/wtrcoolr.svg'
-import { ReactComponent as MoobooRect } from "../../assets/moobooRect.svg";
-import {ReactComponent as DrivingDogeRect} from '../../assets/drivingDogeRect.svg'
+import moobooRect from '../../assets/moobooRect.png'
+import wtrcoolrRect from '../../assets/wtrcoolrRect.png'
+import drivingDogeRect from '../../assets/drivingDogeRect.png'
 import "./ProjectCard.css";
 import {
   PROJECT_REMS
@@ -38,7 +38,7 @@ const ProjectCard = ({ active }) => {
       },
       images: {
         square: moobooSquare,
-        rect: <MoobooRect style={{ width: "100%", height: "auto" }} />,
+        rect: moobooRect,
         featureImage: moobooFeatureVideo,
       },
     },
@@ -55,7 +55,7 @@ const ProjectCard = ({ active }) => {
       },
       images: {
         square: wtrcoolrSquare,
-        rect: <WtrcoolrRect style={{ width: "100%", height: "auto" }} />,
+        rect: wtrcoolrRect,
         featureImage: wtrcoolrFeature,
       },
     },
@@ -72,7 +72,7 @@ const ProjectCard = ({ active }) => {
       },
       images: {
         square: drivingDogeSquare,
-        rect: <DrivingDogeRect style={{ width: "100%", height: "auto" }} />,
+        rect: drivingDogeRect,
         featureImage: drivingDogeFeature,
       },
     },
