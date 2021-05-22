@@ -3,7 +3,7 @@ const education = [
     institution: "App Academy",
     degree: "Software Development Immersive",
     duration: {
-      start: "December 2021",
+      start: "January 2021",
       end: "May 2021",
     },
     bullets: [
