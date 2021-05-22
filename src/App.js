@@ -13,9 +13,13 @@ const App = () => {
   const [imageURL, setImageURL] = useState(null)
 
 
-  const imageSize = window.innerWidth >= 650 ? 'landscape' : 'portrait'
+  let imageSize = window.innerWidth >= 650 ? 'landscape' : 'portrait'
+  let orientation = imageSize === 'landscape' ? landscape : portrait
 
   useEffect(() => {
+
+      imageSize = window.innerWidth >= 650 ? "landscape" : "portrait";
+      orientation = imageSize === "landscape" ? landscape : portrait;
 
     fetchUrl()
 
@@ -25,7 +29,6 @@ const App = () => {
     
   }, [])
 
-  let orientation = imageSize === 'landscape' ? landscape : portrait
 
   const fetchUrl = () => {
     let length = orientation.length
@@ -37,7 +40,7 @@ const App = () => {
       return (
         <Store>
           <div 
-            className="App" 
+            className="App safari_only" 
             style={{backgroundImage: `url(${imageURL})`}}>
 
             <div id='BackgroundCenter'>

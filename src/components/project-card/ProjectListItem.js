@@ -13,7 +13,7 @@ const ProjectListItem = ({ active, collapsed, projectObject }) => {
 
   if( collapsed ) return null
 
-  const imageHeight = `${(window.innerHeight * 0.25)}px`
+  const imageWidth = `${(state.dims.x * 0.4)}px`
   
   const renderProps = Object.entries(props).map(([key, value]) => {
     
@@ -66,7 +66,7 @@ const ProjectListItem = ({ active, collapsed, projectObject }) => {
           <img
             src={images.rect}
             alt="project-logo"
-            style={{ height: "auto", width: "60%" }}
+            style={{ height: "auto", width: "50%" }}
           />
         </div>
         <div className="project-list-item-text">
@@ -74,8 +74,8 @@ const ProjectListItem = ({ active, collapsed, projectObject }) => {
         </div>
         <div className="feature-image-container">
           <video
-            width="auto"
-            height={imageHeight}
+            width={imageWidth}
+            height="auto"
             className="feature-video"
             autoPlay
             muted
