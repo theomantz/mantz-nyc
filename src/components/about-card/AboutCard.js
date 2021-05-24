@@ -1,19 +1,12 @@
 import './AboutCard.css'
-import React, { useContext } from "react";
-
-import { ReactComponent as ContactIcon } from "../../assets/contactIcon.svg";
+import React from "react";
 
 import headshot from "../../assets/headshot.jpg";
 
-import { ReactComponent as LocationIcon } from "../../assets/locationIcon.svg";
 import { ReactComponent as AddressIcon } from "../../assets/addressIcon.svg";
-import { ReactComponent as EmailIcon } from "../../assets/emailIcon.svg";
-import { ReactComponent as CallIcon } from "../../assets/callIcon.svg";
 import { ReactComponent as GithubIcon } from "../../assets/githubIcon.svg";
 import { ReactComponent as LinkedinIcon } from "../../assets/linkedinIcon.svg";
 import { ReactComponent as AngellistIcon } from "../../assets/angellistIcon.svg";
-
-import { Context } from '../../store/store'
 
 const AboutPage = ({active}) => {
 

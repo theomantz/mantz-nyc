@@ -13,7 +13,7 @@ const ProjectListItem = ({ active, collapsed, projectObject }) => {
 
   if( collapsed ) return null
 
-  const imageWidth = `${(state.dims.x * 0.4)}px`
+  const imageWidth = `${(state.dims.x * 0.25)}px`
   
   const renderProps = Object.entries(props).map(([key, value]) => {
     
