@@ -3,23 +3,7 @@
   height: 200px;
   object-fit: cover;
   border-radius: 50%;
-  margin-top: 5%;
-}
-
-@media (max-width: 900px) {
-  .contact-card-image { 
-    width: 200px; 
-    height: 200px;
-  }
-}
-
-
-
-@media (max-width: 600px) {
-  .contact-card-image { 
-    width: 100px; 
-    height: 100px;
-  }
+  margin-top: 2rem;
 }
 
 .contact-info-container {
@@ -158,5 +142,46 @@
   }
   .socials-list {
     margin: 0.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .contact-card-image { 
+    width: 200px; 
+    height: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-card-image { 
+    width: 100px; 
+    height: 100px;
+  }
+}
+
+@media (max-height: 900px) {
+  .contact-card-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .socials-list {
+    margin: 1rem 0.5rem;
+  }
+
+  .socials-link-container {
+    margin: 0;
+  }
+
+  .socials-link-icon {
+    height: 3rem;
+  }
+  
+  .about-card-text {
+    line-height: 1.5rem;
+  }
+
+  .about-card-name {
+    margin: 1rem;
   }
 }

@@ -16,7 +16,7 @@
 }
 
 .experience-title {
-  font-size: 1.25rem;
+  font-size: 1.25em;
   font-weight: 700;
   margin-left: 1.2rem;
 }
@@ -47,4 +47,34 @@
 .bullet {
   list-style: circle;
   margin: 0.5rem;
+}
+
+
+@media (max-height: 900px) {
+  .content-card-visible.experience {
+    padding: 3px;
+  }
+  
+  .experience-container {
+    font-size: 13px;
+  }
+
+  .experience-title {
+    font-size: 14px;
+  }
+
+  .experience-subtitle {
+    font-size: 13px;
+    margin-bottom: 3px;
+  }
+
+  .experience-list {
+    font-size: 13px;
+    line-height: 13px;
+    padding: 0 0 0 13px;
+  }
+
+  .bullet {
+    margin: 3px;
+  }
 }
