@@ -72,7 +72,7 @@ textarea:focus, input:focus {
 #input-icon {
   height: 1.5rem;
   width: auto;
-  margin: 0.75rem;
+  margin: 1rem;
 }
 
 #inputArea {
@@ -104,4 +104,23 @@ textarea:focus, input:focus {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+
+@media (max-height: 900px) {
+
+  #spotlight-inner {
+    height: 7vh;
+  }
+
+
+  #input-icon {
+    height: 3vh;
+    margin: 0.5vh 1vh;
+  }
+
+  #search-icon, #hamburger-icon {
+    height: 3vh;
+  }
+  
 }
