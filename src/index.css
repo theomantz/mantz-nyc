@@ -28,6 +28,19 @@ html {
   html { font-size: 8px; }
 }
 
+
+@media (max-height: 900px) {
+  html { font-size: 13px; }
+}
+
+@media (max-height: 600px) {
+  html { font-size: 11px; }
+}
+
+@media (max-height: 400px) {
+  html { font-size: 8px; }
+}
+
 @media screen and (max-width: 767px) {
     _::-webkit-full-page-media, _:future, :root .safari_only {
         padding-bottom: 65px; 
