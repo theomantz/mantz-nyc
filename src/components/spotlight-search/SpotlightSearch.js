@@ -66,7 +66,7 @@ const SpotlightSearch = () => {
       },
       to: {
         opacity: 1,
-        height: vhToPixel(5),
+        height: window.innerHeight > 900 ? vhToPixel(5) : vhToPixel(7),
         width: vwToPixel(65),
       },
     };
