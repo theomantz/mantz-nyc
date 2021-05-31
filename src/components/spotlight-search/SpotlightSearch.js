@@ -67,7 +67,7 @@ const SpotlightSearch = () => {
       to: {
         opacity: 1,
         height: window.innerHeight > 900 ? vhToPixel(5) : vhToPixel(7),
-        width: vwToPixel(65),
+        width: window.innerWidth > 900 ? vwToPixel(45) : vwToPixel(65)
       },
     };
   } else if (active && (!state.ui || state.card === 'Projects')) {
@@ -75,11 +75,11 @@ const SpotlightSearch = () => {
       config: { ...config.stiff },
       from: {
         height: vhToPixel(5),
-        width: vwToPixel(65),
+        width: window.innerWidth > 900 ? vwToPixel(45) : vwToPixel(65),
       },
       to: {
-        height: state.card === 'Projects' ? projectsHeight : spotlightHeight,
-        width: vwToPixel(65),
+        height: state.card === "Projects" ? projectsHeight : spotlightHeight,
+        width: window.innerWidth > 900 ? vwToPixel(45) : vwToPixel(65),
       },
     };
   } else if (state.ui && state.card !== 'Projects') {
@@ -87,7 +87,7 @@ const SpotlightSearch = () => {
       config: { ...config.stiff },
       to: {
         height: vhToPixel(85),
-        width: vwToPixel(85),
+        width: window.innerWidth > 900 ? vwToPixel(65) : vwToPixel(85),
       },
     };
   }
@@ -247,7 +247,7 @@ const SpotlightSearch = () => {
         value={search}
         readOnly
         onChange={(e) => setSearch(e.currentTarget.value)}
-        onClick={(e) => setActive(!active)}
+        onClick={() => setActive(!active)}
       />
     );
   } else {

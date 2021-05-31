@@ -36,12 +36,12 @@ const SearchList = ({ active }) => {
     to: { 
       opacity: 1,
       height: vhInnerToPixel(85),
-      width: state.card === 'Projects' ? vwToPixel(65) : vwToPixel(85)
+      width: ( state.card === 'Projects' || window.innerWidth > 900 ) ? vwToPixel(65) : vwToPixel(85)
     },
   });
 
   const handleClick = (type) => {
-    return (e) => {
+    return () => {
       dispatch({ type: ACTIVE_CARD, payload: type });
       dispatch({ type: EXPANDED, payload: true });
       dispatch({ type: ACTIVE_ICON, payload: type });
