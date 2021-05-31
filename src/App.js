@@ -4,7 +4,6 @@ import {
   portrait,
   landscape
 } from './assets/backgroundPhotos/photos'
-import axios from 'axios'
 import Store from './store/store'
 import SpotlightSearch from './components/spotlight-search/SpotlightSearch'
 
