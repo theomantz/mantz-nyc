@@ -11,6 +11,7 @@ textarea:focus, input:focus {
   overflow-y: auto;
   border-radius: 0.6rem;
   transition: height 0.2s ease-out;
+  user-select: none;
 }
 
 #spotlight-container:after {
