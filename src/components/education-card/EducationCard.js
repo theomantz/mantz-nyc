@@ -24,7 +24,7 @@ const EducationCard = ({active}) => {
 
     const educationObject = education.map((e) => {
       return (
-        <div className="experience-container">
+        <div key={uuidv4()} className="experience-container">
           <fieldset className="experience-fieldset">
             <legend className="experience-title">{e.institution}</legend>
             <div className="experience-subtitle">
@@ -34,7 +34,7 @@ const EducationCard = ({active}) => {
               </span>
             </div>
             <div className="experience-bullets">
-              <ul className="experience-list">
+              <ul key={uuidv4()} className="experience-list">
                 {e.bullets.map((b) => (
                   <li className="bullet" key={uuidv4()}>
                     {b}

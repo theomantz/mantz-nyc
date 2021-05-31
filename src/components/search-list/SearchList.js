@@ -149,8 +149,8 @@ const SearchList = ({ active }) => {
   Object.entries(sectionHeaders).forEach(([key, value]) => {
     searchList.push(
       <ul 
-      key={uuidv4()}
-      className='section-ul'
+        key={uuidv4()}
+        className='section-ul'
       >
         <li 
           className='section-ul-title'

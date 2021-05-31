@@ -22,10 +22,6 @@ const App = () => {
       orientation = imageSize === "landscape" ? landscape : portrait;
 
     fetchUrl()
-
-    window.addEventListener('resize', () => {
-      fetchUrl()
-    })
     
   }, [])
 

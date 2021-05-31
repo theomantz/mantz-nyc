@@ -27,7 +27,7 @@ const AboutPage = ({active}) => {
         <div className="contact-info-container">
           <ul className="name-location-container">
             <p className='about-card-text'>
-              I am a passionate full stack developer and engineer who is equal parts aethetically and technically minded
+              I am a full stack developer and engineer who loves to create things that are both visually stunning and technically impressive
             </p>
             <p className='about-card-text'>
               With an extensive background in Project Management and Engineering Design, I am an individual who is passionate about merging all aspects of sound design into a beautfully crafted product from the front to the back end
