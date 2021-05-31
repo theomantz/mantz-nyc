@@ -216,6 +216,8 @@ const SpotlightSearch = () => {
       smartBackspace: true,
       typeSpeed: 50,
       backSpeed: 50,
+      showCursor: true,
+      cursorChar: '|',
       onComplete: (self) => {
         setSearch("Theo Mantz");
         setActive(true);
@@ -243,8 +245,9 @@ const SpotlightSearch = () => {
         id="inputArea"
         placeholder="Search"
         value={search}
+        readOnly
         onChange={(e) => setSearch(e.currentTarget.value)}
-        onClick={(e) => setActive(true)}
+        onClick={(e) => setActive(!active)}
       />
     );
   } else {
