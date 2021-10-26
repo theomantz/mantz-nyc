@@ -1,5 +1,18 @@
 const experience = [
   {
+    company: "FlightAware",
+    title: "Associate Software Engineer",
+    duration: {
+      start: "September 2019",
+      end: "October 2020",
+    },
+    bullets: [
+      "Implemented feature improvements and bug fixes",
+      "Coordinated with UI/UX design for implementation of updated FlightPage UI",
+      "Engineered several web in docker solutions to core web product",
+    ],
+  },
+  {
     company: "Fast + Epp",
     title: "Structural Engineer",
     duration: {
@@ -13,40 +26,21 @@ const experience = [
     ],
   },
   {
-    company: "DeStefano and Chamberlain",
-    title: "Structural Engineer",
+    company: "Various",
+    title: "Structural Engineer & Project Manager",
     duration: {
-      start: "January 2019",
+      start: "August 2008",
       end: "September 2019",
     },
     bullets: [
       "Orchestrated design of mass timber connections on $2.5M insitutional project",
-      "Coordinated geotechnical investigations and oversaw deep foundation construction on $50M commercial project"
-    ],
-  },
-  {
-    company: "Dominion Energy",
-    title: "Engineering Intern",
-    duration: {
-      start: "Summer 2017",
-      end: "Summer 2018",
-    },
-    bullets: [
+      "Coordinated geotechnical investigations and oversaw deep foundation construction on $50M commercial project",
       "Utilizing Excel VBA and Python, updated pipe support database of over 5000 entries to include stress isometric drawings",
-      "Coordinated with Senior Engineers to qualify five novel steel pipe supports","Collaborated with Senior Engineers to develop a steel restraint system to prevent the total failure of a cracked piping flange",
-    ],
-  },
-  {
-    company: "Mantz Construction",
-    title: "Project Manager",
-    duration: {
-      start: "August 2008",
-      end: "January 2018",
-    },
-    bullets: [
+      "Coordinated with Senior Engineers to qualify five novel steel pipe supports",
+      "Collaborated with Senior Engineers to develop a steel restraint system to prevent the total failure of a cracked piping flange",
       "Project Manager for residential development projects of up to $10M managing multiple aspects of construction including site work, carpentry and skilled trades",
     ],
   },
 ];
 
-export default experience
+export default experience;

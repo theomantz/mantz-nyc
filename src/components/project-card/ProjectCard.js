@@ -1,28 +1,24 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/store";
-import ProjectListItem from './ProjectListItem'
-import moobooSquare from '../../assets/MoobooSquare.png'
-import wtrcoolrSquare from '../../assets/wtrcoolrSquare.png'
-import drivingDogeSquare from '../../assets/drivingDogeSquare.png'
-import moobooFeatureVideo from '../../assets/moobooFeatureVideo.mov'
-import wtrcoolrFeature from '../../assets/wtrcoolrFeature.mov'
-import drivingDogeFeature from '../../assets/drivingDogeFeature.mov'
-import moobooRect from '../../assets/moobooRect.png'
-import wtrcoolrRect from '../../assets/wtrcoolrRect.png'
-import drivingDogeRect from '../../assets/drivingDogeRect.png'
+import ProjectListItem from "./ProjectListItem";
+import moobooSquare from "../../assets/MoobooSquare.png";
+import wtrcoolrSquare from "../../assets/wtrcoolrSquare.png";
+import drivingDogeSquare from "../../assets/drivingDogeSquare.png";
+import moobooFeatureVideo from "../../assets/moobooFeatureVideo.mov";
+import wtrcoolrFeature from "../../assets/wtrcoolrFeature.mov";
+import drivingDogeFeature from "../../assets/drivingDogeFeature.mov";
+import moobooRect from "../../assets/moobooRect.png";
+import wtrcoolrRect from "../../assets/wtrcoolrRect.png";
+import drivingDogeRect from "../../assets/drivingDogeRect.png";
 import "./ProjectCard.css";
-import {
-  PROJECT_REMS
-} from '../../reducers/uiReducer'
+import { PROJECT_REMS } from "../../reducers/uiReducer";
 
-import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from "uuid";
 
-import {
-  ReactComponent as ProjectIcon
-} from '../../assets/projectIcon.svg'
+import { ReactComponent as ProjectIcon } from "../../assets/projectIcon.svg";
 
 const ProjectCard = ({ active }) => {
-
+  const vwToPixel = (value) => `${(window.innerWidth * value) / 100}px`;
   const projectsObject = [
     {
       title: "mooboo",
@@ -78,22 +74,20 @@ const ProjectCard = ({ active }) => {
     },
   ];
 
-  const [state, dispatch] = useContext(Context)
+  const [state, dispatch] = useContext(Context);
 
   const remCalc = () => {
-    
     let remCount = 0;
 
     projectsObject.forEach((obj) => {
       remCount += 2;
     });
 
-    dispatch({ type: PROJECT_REMS, payload: remCount + 1});
-
+    dispatch({ type: PROJECT_REMS, payload: remCount + 1 });
   };
 
   useEffect(() => {
-    if(!state.projectRems) {
+    if (!state.projectRems) {
       remCalc();
     }
   });
@@ -109,34 +103,34 @@ const ProjectCard = ({ active }) => {
     );
   });
 
-  const { card } = state
-  
-  if(!active) {
+  const { card } = state;
+
+  if (!active) {
     return (
       <div className="section-list-card-container">
         <div className="section-list-card-icon-container">
-          <ProjectIcon className='section-list-icon' />
+          <ProjectIcon className="section-list-icon" />
         </div>
         <span className="section-list-text">Projects</span>
       </div>
     );
-  } else if (card === 'Projects') {
-
+  } else if (card === "Projects") {
+    let width = window.innerWidth > 900 ? vwToPixel(45) : vwToPixel(65);
     return (
- 
-      <div className='project-page-container'>
-        <ul className='section-ul'>
-          <li className='section-ul-title'>
-            Applications
-          </li>
+      <div
+        className="project-page-container"
+        style={{
+          width,
+        }}
+      >
+        <ul className="section-ul">
+          <li className="section-ul-title">Applications</li>
           {projectCards}
         </ul>
       </div>
-
-    )
-
-  } else if (card === 'Project Details') {
-    const obj = projectsObject.find(o => o.title === state.icon )
+    );
+  } else if (card === "Project Details") {
+    const obj = projectsObject.find((o) => o.title === state.icon);
     return (
       <ProjectListItem
         active={state.icon === obj.title}
@@ -146,6 +140,6 @@ const ProjectCard = ({ active }) => {
       />
     );
   }
-}
+};
 
-export default ProjectCard
+export default ProjectCard;
