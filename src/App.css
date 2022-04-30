@@ -4,6 +4,7 @@
   background-repeat: no-repeat;
   background-position: top center;
   overflow-y: hidden;
+  scrollbar-width: none;
 }
 
 #BackgroundCenter {
@@ -31,4 +32,8 @@
   justify-content: space-evenly;
   padding: 2rem;
   /* overflow-y: scroll; */
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

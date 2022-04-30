@@ -11,7 +11,7 @@ import {
   EXPANDED,
 } from "../../reducers/uiReducer";
 
-import { ReactComponent as ContactIcon } from '../../assets/contactIcon.svg';
+import { ReactComponent as ContactIcon } from "../../assets/contactIcon.svg";
 
 import { ReactComponent as SearchIcon } from "../../assets/searchIcon.svg";
 
@@ -19,45 +19,45 @@ import { ReactComponent as AddressIcon } from "../../assets/addressIcon.svg";
 
 import { ReactComponent as ProjectIcon } from "../../assets/projectIcon.svg";
 
-import { ReactComponent as ExperienceIcon } from '../../assets/experienceIcon.svg'
+import { ReactComponent as ExperienceIcon } from "../../assets/experienceIcon.svg";
 
-import { ReactComponent as EducationIcon } from '../../assets/educationIcon.svg'
+import { ReactComponent as EducationIcon } from "../../assets/educationIcon.svg";
 
-import { ReactComponent as BackArrowIcon } from "../../assets/backArrowIcon.svg"
+import { ReactComponent as BackArrowIcon } from "../../assets/backArrowIcon.svg";
 
-import { ReactComponent as SkillsIcon } from "../../assets/skillsIcon.svg"
+import { ReactComponent as SkillsIcon } from "../../assets/skillsIcon.svg";
 
-import moobooSquare from '../../assets/MoobooSquare.png'
-import wtrcoolrSquare from '../../assets/wtrcoolrSquare.png'
-import drivingDogeSquare from '../../assets/drivingDogeSquare.png'
+import moobooSquare from "../../assets/MoobooSquare.png";
+import wtrcoolrSquare from "../../assets/wtrcoolrSquare.png";
+import drivingDogeSquare from "../../assets/drivingDogeSquare.png";
 
 const SpotlightSearch = () => {
-
-
   const [state, dispatch] = useContext(Context);
   const [active, setActive] = useState(false);
   const [search, setSearch] = useState("");
 
   let rem;
-  let width = window.innerWidth
-  if(width > 900) {
-    rem = 16
+  let width = window.innerWidth;
+  if (width > 900) {
+    rem = 16;
   } else if (width > 600) {
-    rem = 13
+    rem = 13;
   } else if (width > 400) {
-    rem = 11
+    rem = 11;
   } else {
-    rem = 8
+    rem = 8;
   }
-  
-  const vhToPixel = (value) => `${(window.innerHeight * value)/ 100}px`;
+
+  const vhToPixel = (value) => `${(window.innerHeight * value) / 100}px`;
   const vwToPixel = (value) => `${(window.innerWidth * value) / 100}px`;
 
-  const vhToPixelNumeric = (value) => ((window.innerHeight * value)/ 100);
+  const vhToPixelNumeric = (value) => (window.innerHeight * value) / 100;
 
-  const spotlightHeight = `${state.spotlightRems * rem + vhToPixelNumeric(5)}px` 
-  const projectsHeight = `${state.projectRems * rem + vhToPixelNumeric(5)}px`
-  
+  const spotlightHeight = `${
+    state.spotlightRems * rem + vhToPixelNumeric(5)
+  }px`;
+  const projectsHeight = `${state.projectRems * rem + vhToPixelNumeric(5)}px`;
+
   let springConfig;
   if (!active && !state.ui) {
     springConfig = {
@@ -67,10 +67,10 @@ const SpotlightSearch = () => {
       to: {
         opacity: 1,
         height: window.innerHeight > 900 ? vhToPixel(5) : vhToPixel(7),
-        width: window.innerWidth > 900 ? vwToPixel(45) : vwToPixel(65)
+        width: window.innerWidth > 900 ? vwToPixel(45) : vwToPixel(65),
       },
     };
-  } else if (active && (!state.ui || state.card === 'Projects')) {
+  } else if (active && (!state.ui || state.card === "Projects")) {
     springConfig = {
       config: { ...config.stiff },
       from: {
@@ -82,7 +82,7 @@ const SpotlightSearch = () => {
         width: window.innerWidth > 900 ? vwToPixel(45) : vwToPixel(65),
       },
     };
-  } else if (state.ui && state.card !== 'Projects') {
+  } else if (state.ui && state.card !== "Projects") {
     springConfig = {
       config: { ...config.stiff },
       to: {
@@ -93,13 +93,13 @@ const SpotlightSearch = () => {
   }
 
   const handleSearchClick = () => {
-    if (state.ui && state.card !== 'Project Details') {
+    if (state.ui && state.card !== "Project Details") {
       dispatch({ type: EXPANDED, payload: false });
       dispatch({ type: ACTIVE_CARD, payload: null });
       dispatch({ type: ACTIVE_ICON, payload: null });
-    } else if (state.card === 'Project Details') {
-      dispatch({type: ACTIVE_ICON, payload: 'Projects'})
-      dispatch({type: ACTIVE_CARD, payload: 'Projects'})
+    } else if (state.card === "Project Details") {
+      dispatch({ type: ACTIVE_ICON, payload: "Projects" });
+      dispatch({ type: ACTIVE_CARD, payload: "Projects" });
     }
   };
 
@@ -107,7 +107,12 @@ const SpotlightSearch = () => {
     const transitions = useTransition(state.ui, {
       from: { opacity: 0, transform: "translate3d(-25%, 0px, 0px)" },
       enter: { opacity: 1, transform: "translate3d(0%, 0px, 0px)" },
-      leave: { opacity: 0, height: 0, width: 0, transform: "translate3d(25%, 0px, 0px)" },
+      leave: {
+        opacity: 0,
+        height: 0,
+        width: 0,
+        transform: "translate3d(25%, 0px, 0px)",
+      },
       trail: 1000,
       config: config.gentle,
     });
@@ -115,8 +120,8 @@ const SpotlightSearch = () => {
       display: "flex",
       flexDirection: "row",
       justifyContent: "center",
-      alignItems: "center"
-    }
+      alignItems: "center",
+    };
     return transitions((styles, item) =>
       item ? (
         <animated.div style={{ ...styles, ...baseDivStyles }}>
@@ -134,17 +139,16 @@ const SpotlightSearch = () => {
   };
 
   const icons = {
-    'About': <AddressIcon id='input-icon'/>,
-    'Contact': <ContactIcon id='input-icon'/>,
-    'Projects': <ProjectIcon id='input-icon'/>,
-    'Skills': <SkillsIcon id='input-icon'/>,
-    'Experience': <ExperienceIcon id='input-icon'/>,
-    'Education': <EducationIcon id='input-icon'/>,
-    'mooboo': <img src={moobooSquare} alt='app-icon' id='input-icon'/>,
-    'wtrcoolr': <img src={wtrcoolrSquare} alt='app-icon' id='input-icon'/>,
-    'DrivingDoge': <img src={drivingDogeSquare} alt='app-icon' id='input-icon'/>,
-  }
-
+    About: <AddressIcon id="input-icon" />,
+    Contact: <ContactIcon id="input-icon" />,
+    Projects: <ProjectIcon id="input-icon" />,
+    Skills: <SkillsIcon id="input-icon" />,
+    Experience: <ExperienceIcon id="input-icon" />,
+    Education: <EducationIcon id="input-icon" />,
+    mooboo: <img src={moobooSquare} alt="app-icon" id="input-icon" />,
+    wtrcoolr: <img src={wtrcoolrSquare} alt="app-icon" id="input-icon" />,
+    DrivingDoge: <img src={drivingDogeSquare} alt="app-icon" id="input-icon" />,
+  };
 
   const ActiveIcon = () => {
     const transitions = useTransition(state.icon, {
@@ -155,20 +159,16 @@ const SpotlightSearch = () => {
       config: config.gentle,
     });
     return transitions((styles, item) => {
-      return (
-        <animated.div style={{...styles }}>
-          {icons[item]}
-        </animated.div>
-      )
-    })
-  }
+      return <animated.div style={{ ...styles }}>{icons[item]}</animated.div>;
+    });
+  };
 
   const headers = {
-    'About': "About",
-    'Contact': "Contact",
-    'Projects': "My Projects",
-    'Experience': "Experience",
-    'Education': "Education",
+    About: "About",
+    Contact: "Contact",
+    Projects: "My Projects",
+    Experience: "Experience",
+    Education: "Education",
   };
 
   let spotlightContainerSpring = useSpring(springConfig);
@@ -186,7 +186,7 @@ const SpotlightSearch = () => {
       typeSpeed: 50,
       backSpeed: 50,
       showCursor: true,
-      cursorChar: '|',
+      cursorChar: "|",
       onComplete: (self) => {
         setSearch("Theo Mantz");
         setActive(true);
@@ -196,8 +196,6 @@ const SpotlightSearch = () => {
       typed.destroy();
     };
   }, []);
-
-
 
   const getWindowDimensions = () => {
     const root = document.querySelector("#root");
@@ -226,9 +224,7 @@ const SpotlightSearch = () => {
   return (
     <animated.div id="spotlight-container" style={spotlightContainerSpring}>
       <div id="spotlight-inner">
-        <div id="searchIcon-container">
-          {MenuIcon()}
-        </div>
+        <div id="searchIcon-container">{MenuIcon()}</div>
         <div id="inputArea-container">
           {inputArea}
           {ActiveIcon()}

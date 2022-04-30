@@ -1,10 +1,19 @@
 const experience = [
   {
+    company: "Chainalysis",
+    title: "Software Engineer",
+    duration: {
+      start: "Januaray 2022",
+      end: "Present",
+    },
+    bullets: ["Building trust in blockchain"],
+  },
+  {
     company: "FlightAware",
     title: "Associate Software Engineer",
     duration: {
-      start: "September 2019",
-      end: "October 2020",
+      start: "August 2021",
+      end: "January 2022",
     },
     bullets: [
       "Implemented feature improvements and bug fixes",
